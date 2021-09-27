@@ -110,6 +110,7 @@ AllowedFilter::exists('name', 'field'); // Проверяется, что пол
 
 Доступные клиенту сортировки добавляются методом `allowedSorts`. Направление сортировки задается в ее имени.
 Знак `+` или отсутствие знака соответствует порядку по возрастанию, `-` - порядку по убыванию.
+По умолчанию используется сортировка по возрастанию с выбором минимального, в случае нескольких значений в поле.
 
 ```php
 $this->allowedSorts([AllowedSort::field('name', 'field')]);
@@ -117,6 +118,7 @@ $this->allowedSorts([AllowedSort::field('name', 'field')]);
 // the following statements are equivalent
 $this->allowedSorts(['name']);
 $this->allowedSorts([AllowedSort::field('+name', 'name')]);
+$this->allowedSorts([AllowedSort::field('+name', 'name')->byMin()]);
 
 // set the sorting mode
 $this->allowedSorts([AllowedSort::field('name', 'field')->byMin()]);
