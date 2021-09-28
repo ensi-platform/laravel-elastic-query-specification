@@ -1,0 +1,53 @@
+<?php
+
+namespace Greensight\LaravelElasticQuerySpecification\Agregating;
+
+use Greensight\LaravelElasticQuerySpecification\Contracts\Aggregate;
+use Greensight\LaravelElasticQuerySpecification\Contracts\AggregateAction;
+use Greensight\LaravelElasticQuery\Contracts\AggregationsBuilder;
+use Webmozart\Assert\Assert;
+
+class AllowedAggregate implements Aggregate
+{
+    private string $name;
+
+    protected string $field;
+    protected AggregateAction $action;
+
+    public function __construct(string $name, AggregateAction $action, ?string $field = null)
+    {
+        Assert::stringNotEmpty($name);
+        Assert::nullOrStringNotEmpty($field);
+
+        $this->name = $name;
+        $this->field = $field ?? $this->name;
+        $this->action = $action;
+    }
+
+    public function __invoke(AggregationsBuilder $builder): void
+    {
+        ($this->action)($builder, $this->name, $this->field);
+    }
+
+    public function name(): string
+    {
+        return $this->name;
+    }
+
+    public static function wrap(self|string $source): self
+    {
+        return $source instanceof self
+            ? $source
+            : self::terms($source);
+    }
+
+    public static function terms(string $name, ?string $field = null): self
+    {
+        return new static($name, new TermsAggregateAction(), $field);
+    }
+
+    public static function minmax(string $name, ?string $field = null): self
+    {
+        return new static($name, new MinMaxAggregateAction(), $field);
+    }
+}
