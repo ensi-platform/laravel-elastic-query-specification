@@ -1,8 +1,15 @@
-# Декларативные запросы
+# Laravel Elastic Query Specification
 
-## Спецификации
+Extension for [greensight/laravel-elastic-query](https://github.com/greensight/laravel-elastic-query/) to describe queries in a declarative way.
 
-Все виды таких запросов строятся на основе спецификации. В ней содержатся определения доступных фильтров, сортировок и
+## Installation
+
+1. Install [greensight/laravel-elastic-query](https://github.com/greensight/laravel-elastic-query/) https://github.com/greensight/laravel-elastic-query#installation
+2. `composer require greensight/laravel-elastic-query-specification`
+
+## Usage // TODO translate to english
+
+Все виды декларативных запросов строятся на основе спецификации. В ней содержатся определения доступных фильтров, сортировок и
 агрегатов.
 
 ```php
