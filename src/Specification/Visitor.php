@@ -1,8 +1,8 @@
 <?php
 
-namespace Greensight\LaravelElasticQuerySpecification\Specification;
+namespace Ensi\LaravelElasticQuerySpecification\Specification;
 
-use Greensight\LaravelElasticQuerySpecification\Specification\Specification;
+use Ensi\LaravelElasticQuerySpecification\Specification\Specification;
 
 interface Visitor
 {

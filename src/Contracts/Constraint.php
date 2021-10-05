@@ -1,8 +1,8 @@
 <?php
 
-namespace Greensight\LaravelElasticQuerySpecification\Contracts;
+namespace Ensi\LaravelElasticQuerySpecification\Contracts;
 
-use Greensight\LaravelElasticQuery\Contracts\BoolQuery;
+use Ensi\LaravelElasticQuery\Contracts\BoolQuery;
 
 interface Constraint
 {

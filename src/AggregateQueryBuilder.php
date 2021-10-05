@@ -1,12 +1,12 @@
 <?php
 
-namespace Greensight\LaravelElasticQuerySpecification;
+namespace Ensi\LaravelElasticQuerySpecification;
 
 use Generator;
-use Greensight\LaravelElasticQuerySpecification\Processors\AggregateProcessor;
-use Greensight\LaravelElasticQuerySpecification\Processors\ConstraintProcessor;
-use Greensight\LaravelElasticQuerySpecification\Processors\FilterProcessor;
-use Greensight\LaravelElasticQuery\Aggregating\AggregationsQuery;
+use Ensi\LaravelElasticQuerySpecification\Processors\AggregateProcessor;
+use Ensi\LaravelElasticQuerySpecification\Processors\ConstraintProcessor;
+use Ensi\LaravelElasticQuerySpecification\Processors\FilterProcessor;
+use Ensi\LaravelElasticQuery\Aggregating\AggregationsQuery;
 
 /**
  * @mixin AggregationsQuery

@@ -1,10 +1,10 @@
 <?php
 
-namespace Greensight\LaravelElasticQuerySpecification\Tests;
+namespace Ensi\LaravelElasticQuerySpecification\Tests;
 
-use Greensight\LaravelElasticQuery\ElasticQuery;
-use Greensight\LaravelElasticQuery\ElasticQueryServiceProvider;
-use Greensight\LaravelElasticQuerySpecification\ElasticQuerySpecificationServiceProvider;
+use Ensi\LaravelElasticQuery\ElasticQuery;
+use Ensi\LaravelElasticQuery\ElasticQueryServiceProvider;
+use Ensi\LaravelElasticQuerySpecification\ElasticQuerySpecificationServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra

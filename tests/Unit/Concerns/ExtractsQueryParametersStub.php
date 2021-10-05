@@ -1,8 +1,8 @@
 <?php
 
-namespace Greensight\LaravelElasticQuerySpecification\Tests\Unit\Concerns;
+namespace Ensi\LaravelElasticQuerySpecification\Tests\Unit\Concerns;
 
-use Greensight\LaravelElasticQuerySpecification\Concerns\ExtractsQueryParameters;
+use Ensi\LaravelElasticQuerySpecification\Concerns\ExtractsQueryParameters;
 
 class ExtractsQueryParametersStub
 {

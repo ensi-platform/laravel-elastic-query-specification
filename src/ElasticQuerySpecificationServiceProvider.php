@@ -1,6 +1,6 @@
 <?php
 
-namespace Greensight\LaravelElasticQuerySpecification;
+namespace Ensi\LaravelElasticQuerySpecification;
 
 use Illuminate\Foundation\Application;
 use Spatie\LaravelPackageTools\Package;

@@ -1,11 +1,11 @@
 # Laravel Elastic Query Specification
 
-Extension for [greensight/laravel-elastic-query](https://github.com/greensight/laravel-elastic-query/) to describe queries in a declarative way.
+Extension for [ensi/laravel-elastic-query](https://github.com/ensi-platform/laravel-elastic-query/) to describe queries in a declarative way.
 
 ## Installation
 
-1. Install [greensight/laravel-elastic-query](https://github.com/greensight/laravel-elastic-query/) https://github.com/greensight/laravel-elastic-query#installation
-2. `composer require greensight/laravel-elastic-query-specification`
+1. Install [ensi/laravel-elastic-query](https://github.com/ensi-platform/laravel-elastic-query/) https://github.com/ensi-platform/laravel-elastic-query#installation
+2. `composer require ensi/laravel-elastic-query-specification`
 
 ## Usage // TODO translate to english
 
@@ -13,11 +13,11 @@ Extension for [greensight/laravel-elastic-query](https://github.com/greensight/l
 агрегатов.
 
 ```php
-use Greensight\LaravelElasticQuery\Declarative\Agregating\AllowedAggregate;
-use Greensight\LaravelElasticQuery\Declarative\Filtering\AllowedFilter;
-use Greensight\LaravelElasticQuery\Declarative\Sorting\AllowedSort;
-use Greensight\LaravelElasticQuery\Declarative\Specification\CompositeSpecification;
-use Greensight\LaravelElasticQuery\Declarative\Specification\Specification;
+use Ensi\LaravelElasticQuery\Declarative\Agregating\AllowedAggregate;
+use Ensi\LaravelElasticQuery\Declarative\Filtering\AllowedFilter;
+use Ensi\LaravelElasticQuery\Declarative\Sorting\AllowedSort;
+use Ensi\LaravelElasticQuery\Declarative\Specification\CompositeSpecification;
+use Ensi\LaravelElasticQuery\Declarative\Specification\Specification;
 
 class ProductSpecification extends CompositeSpecification
 {
@@ -160,8 +160,8 @@ AllowedAggregate::minmax('name', 'field');  // Get min and max attribute values
 ## Поиск документов
 
 ```php
-use Greensight\LaravelElasticQuery\Declarative\SearchQueryBuilder;
-use Greensight\LaravelElasticQuery\Declarative\QueryBuilderRequest;
+use Ensi\LaravelElasticQuery\Declarative\SearchQueryBuilder;
+use Ensi\LaravelElasticQuery\Declarative\QueryBuilderRequest;
 
 class ProductsSearchQuery extends SearchQueryBuilder
 {
@@ -186,8 +186,8 @@ class ProductsController
 ## Расчет сводных показателей
 
 ```php
-use Greensight\LaravelElasticQuery\Declarative\AggregateQueryBuilder;
-use Greensight\LaravelElasticQuery\Declarative\QueryBuilderRequest;
+use Ensi\LaravelElasticQuery\Declarative\AggregateQueryBuilder;
+use Ensi\LaravelElasticQuery\Declarative\QueryBuilderRequest;
 
 class ProductsAggregateQuery extends AggregateQueryBuilder
 {

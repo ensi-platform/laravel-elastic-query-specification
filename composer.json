@@ -1,5 +1,5 @@
 {
-    "name": "greensight/laravel-elastic-query-specification",
+    "name": "ensi/laravel-elastic-query-specification",
     "description": "",
     "keywords": [
         "Greensight",
@@ -17,7 +17,7 @@
     "require": {
         "php": "^8.0",
         "elasticsearch/elasticsearch": "^7.13",
-        "greensight/laravel-elastic-query": "^0.2.0",
+        "ensi/laravel-elastic-query": "^0.3.0",
         "illuminate/contracts": "^8.37",
         "illuminate/support": "^8.0",
         "spatie/laravel-package-tools": "^1.4.3"

@@ -1,10 +1,10 @@
 <?php
 
-use Greensight\LaravelElasticQuery\Contracts\SortableQuery;
-use Greensight\LaravelElasticQuery\Contracts\SortMode;
-use Greensight\LaravelElasticQuery\Contracts\SortOrder;
-use Greensight\LaravelElasticQuerySpecification\Contracts\SortAction;
-use Greensight\LaravelElasticQuerySpecification\Sorting\AllowedSort;
+use Ensi\LaravelElasticQuery\Contracts\SortableQuery;
+use Ensi\LaravelElasticQuery\Contracts\SortMode;
+use Ensi\LaravelElasticQuery\Contracts\SortOrder;
+use Ensi\LaravelElasticQuerySpecification\Contracts\SortAction;
+use Ensi\LaravelElasticQuerySpecification\Sorting\AllowedSort;
 
 uses()->group('unit');
 

@@ -1,10 +1,10 @@
 <?php
 
-namespace Greensight\LaravelElasticQuerySpecification\Specification;
+namespace Ensi\LaravelElasticQuerySpecification\Specification;
 
 use Closure;
-use Greensight\LaravelElasticQuerySpecification\Contracts\Constraint;
-use Greensight\LaravelElasticQuery\Contracts\BoolQuery;
+use Ensi\LaravelElasticQuerySpecification\Contracts\Constraint;
+use Ensi\LaravelElasticQuery\Contracts\BoolQuery;
 
 final class CallbackConstraint implements Constraint
 {

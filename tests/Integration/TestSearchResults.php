@@ -1,12 +1,12 @@
 <?php
 
-namespace Greensight\LaravelElasticQuerySpecification\Tests\Integration;
+namespace Ensi\LaravelElasticQuerySpecification\Tests\Integration;
 
-use Greensight\LaravelElasticQuery\Search\SearchQuery;
-use Greensight\LaravelElasticQuerySpecification\Contracts\QueryParameters;
-use Greensight\LaravelElasticQuerySpecification\SearchQueryBuilder;
-use Greensight\LaravelElasticQuerySpecification\Specification\CompositeSpecification;
-use Greensight\LaravelElasticQuerySpecification\Tests\Data\ProductsIndex;
+use Ensi\LaravelElasticQuery\Search\SearchQuery;
+use Ensi\LaravelElasticQuerySpecification\Contracts\QueryParameters;
+use Ensi\LaravelElasticQuerySpecification\SearchQueryBuilder;
+use Ensi\LaravelElasticQuerySpecification\Specification\CompositeSpecification;
+use Ensi\LaravelElasticQuerySpecification\Tests\Data\ProductsIndex;
 use Illuminate\Support\Collection;
 use function PHPUnit\Framework\assertEquals;
 use function PHPUnit\Framework\assertEqualsCanonicalizing;

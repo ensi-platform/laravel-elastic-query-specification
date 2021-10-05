@@ -1,10 +1,10 @@
 <?php
 
-use Greensight\LaravelElasticQuery\Contracts\BoolQuery;
-use Greensight\LaravelElasticQuerySpecification\Filtering\AllowedFilter;
-use Greensight\LaravelElasticQuerySpecification\Processors\ConstraintProcessor;
-use Greensight\LaravelElasticQuerySpecification\Specification\Specification;
-use Greensight\LaravelElasticQuerySpecification\Tests\Unit\Processors\FluentProcessor;
+use Ensi\LaravelElasticQuery\Contracts\BoolQuery;
+use Ensi\LaravelElasticQuerySpecification\Filtering\AllowedFilter;
+use Ensi\LaravelElasticQuerySpecification\Processors\ConstraintProcessor;
+use Ensi\LaravelElasticQuerySpecification\Specification\Specification;
+use Ensi\LaravelElasticQuerySpecification\Tests\Unit\Processors\FluentProcessor;
 
 uses()->group('unit');
 

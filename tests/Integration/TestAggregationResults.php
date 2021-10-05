@@ -1,13 +1,13 @@
 <?php
 
-namespace Greensight\LaravelElasticQuerySpecification\Tests\Integration;
+namespace Ensi\LaravelElasticQuerySpecification\Tests\Integration;
 
-use Greensight\LaravelElasticQuery\Aggregating\AggregationsQuery;
-use Greensight\LaravelElasticQuery\Aggregating\MinMax;
-use Greensight\LaravelElasticQuerySpecification\AggregateQueryBuilder;
-use Greensight\LaravelElasticQuerySpecification\Contracts\QueryParameters;
-use Greensight\LaravelElasticQuerySpecification\Specification\CompositeSpecification;
-use Greensight\LaravelElasticQuerySpecification\Tests\Data\ProductsIndex;
+use Ensi\LaravelElasticQuery\Aggregating\AggregationsQuery;
+use Ensi\LaravelElasticQuery\Aggregating\MinMax;
+use Ensi\LaravelElasticQuerySpecification\AggregateQueryBuilder;
+use Ensi\LaravelElasticQuerySpecification\Contracts\QueryParameters;
+use Ensi\LaravelElasticQuerySpecification\Specification\CompositeSpecification;
+use Ensi\LaravelElasticQuerySpecification\Tests\Data\ProductsIndex;
 use Illuminate\Support\Collection;
 use function PHPUnit\Framework\assertEquals;
 use function PHPUnit\Framework\assertEqualsCanonicalizing;

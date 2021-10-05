@@ -1,9 +1,9 @@
 <?php
 
-namespace Greensight\LaravelElasticQuerySpecification\Filtering;
+namespace Ensi\LaravelElasticQuerySpecification\Filtering;
 
-use Greensight\LaravelElasticQuerySpecification\Contracts\FilterAction;
-use Greensight\LaravelElasticQuery\Contracts\BoolQuery;
+use Ensi\LaravelElasticQuerySpecification\Contracts\FilterAction;
+use Ensi\LaravelElasticQuery\Contracts\BoolQuery;
 
 class ExactFilterAction implements FilterAction
 {

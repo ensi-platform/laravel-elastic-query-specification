@@ -1,6 +1,6 @@
 <?php
 
-use Greensight\LaravelElasticQuerySpecification\Tests\Unit\Concerns\ExtractsQueryParametersStub;
+use Ensi\LaravelElasticQuerySpecification\Tests\Unit\Concerns\ExtractsQueryParametersStub;
 
 uses()->group('unit');
 

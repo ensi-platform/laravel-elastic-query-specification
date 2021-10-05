@@ -1,12 +1,12 @@
 <?php
 
-use Greensight\LaravelElasticQuerySpecification\Agregating\AllowedAggregate;
-use Greensight\LaravelElasticQuerySpecification\Contracts\Constraint;
-use Greensight\LaravelElasticQuerySpecification\Exceptions\ComponentExistsException;
-use Greensight\LaravelElasticQuerySpecification\Filtering\AllowedFilter;
-use Greensight\LaravelElasticQuerySpecification\Sorting\AllowedSort;
-use Greensight\LaravelElasticQuerySpecification\Specification\CallbackConstraint;
-use Greensight\LaravelElasticQuerySpecification\Specification\Specification;
+use Ensi\LaravelElasticQuerySpecification\Agregating\AllowedAggregate;
+use Ensi\LaravelElasticQuerySpecification\Contracts\Constraint;
+use Ensi\LaravelElasticQuerySpecification\Exceptions\ComponentExistsException;
+use Ensi\LaravelElasticQuerySpecification\Filtering\AllowedFilter;
+use Ensi\LaravelElasticQuerySpecification\Sorting\AllowedSort;
+use Ensi\LaravelElasticQuerySpecification\Specification\CallbackConstraint;
+use Ensi\LaravelElasticQuerySpecification\Specification\Specification;
 
 uses()->group('unit');
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Greensight\LaravelElasticQuerySpecification\Tests\Data;
+namespace Ensi\LaravelElasticQuerySpecification\Tests\Data;
 
 class ProductIndexSeeder extends IndexSeeder
 {

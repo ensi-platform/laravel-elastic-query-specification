@@ -1,8 +1,8 @@
 <?php
 
-namespace Greensight\LaravelElasticQuerySpecification\Tests\Data;
+namespace Ensi\LaravelElasticQuerySpecification\Tests\Data;
 
-use Greensight\LaravelElasticQuerySpecification\Specification\CompositeSpecification;
+use Ensi\LaravelElasticQuerySpecification\Specification\CompositeSpecification;
 
 class ProductSpecification extends CompositeSpecification
 {

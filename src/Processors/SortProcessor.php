@@ -1,16 +1,16 @@
 <?php
 
-namespace Greensight\LaravelElasticQuerySpecification\Processors;
+namespace Ensi\LaravelElasticQuerySpecification\Processors;
 
-use Greensight\LaravelElasticQuerySpecification\Contracts\Sort;
-use Greensight\LaravelElasticQuerySpecification\Exceptions\ComponentExistsException;
-use Greensight\LaravelElasticQuerySpecification\Exceptions\InvalidQueryException;
-use Greensight\LaravelElasticQuerySpecification\Exceptions\NotUniqueNameException;
-use Greensight\LaravelElasticQuerySpecification\Sorting\AllowedSort;
-use Greensight\LaravelElasticQuerySpecification\Sorting\NestedSort;
-use Greensight\LaravelElasticQuerySpecification\Specification\Specification;
-use Greensight\LaravelElasticQuerySpecification\Specification\Visitor;
-use Greensight\LaravelElasticQuery\Contracts\SortableQuery;
+use Ensi\LaravelElasticQuerySpecification\Contracts\Sort;
+use Ensi\LaravelElasticQuerySpecification\Exceptions\ComponentExistsException;
+use Ensi\LaravelElasticQuerySpecification\Exceptions\InvalidQueryException;
+use Ensi\LaravelElasticQuerySpecification\Exceptions\NotUniqueNameException;
+use Ensi\LaravelElasticQuerySpecification\Sorting\AllowedSort;
+use Ensi\LaravelElasticQuerySpecification\Sorting\NestedSort;
+use Ensi\LaravelElasticQuerySpecification\Specification\Specification;
+use Ensi\LaravelElasticQuerySpecification\Specification\Visitor;
+use Ensi\LaravelElasticQuery\Contracts\SortableQuery;
 use Illuminate\Support\Collection;
 
 class SortProcessor implements Visitor

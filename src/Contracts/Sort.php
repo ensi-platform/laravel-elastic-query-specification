@@ -1,8 +1,8 @@
 <?php
 
-namespace Greensight\LaravelElasticQuerySpecification\Contracts;
+namespace Ensi\LaravelElasticQuerySpecification\Contracts;
 
-use Greensight\LaravelElasticQuery\Contracts\SortableQuery;
+use Ensi\LaravelElasticQuery\Contracts\SortableQuery;
 
 interface Sort
 {

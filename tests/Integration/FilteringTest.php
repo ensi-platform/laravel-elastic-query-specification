@@ -1,10 +1,10 @@
 <?php
 
-use Greensight\LaravelElasticQuerySpecification\Exceptions\InvalidQueryException;
-use Greensight\LaravelElasticQuerySpecification\Filtering\AllowedFilter;
-use Greensight\LaravelElasticQuerySpecification\Specification\CompositeSpecification;
-use Greensight\LaravelElasticQuerySpecification\Specification\Specification;
-use Greensight\LaravelElasticQuerySpecification\Tests\Data\ProductIndexSeeder;
+use Ensi\LaravelElasticQuerySpecification\Exceptions\InvalidQueryException;
+use Ensi\LaravelElasticQuerySpecification\Filtering\AllowedFilter;
+use Ensi\LaravelElasticQuerySpecification\Specification\CompositeSpecification;
+use Ensi\LaravelElasticQuerySpecification\Specification\Specification;
+use Ensi\LaravelElasticQuerySpecification\Tests\Data\ProductIndexSeeder;
 
 beforeEach(function () {
     ProductIndexSeeder::run();

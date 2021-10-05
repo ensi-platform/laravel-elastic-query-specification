@@ -1,11 +1,11 @@
 <?php
 
-use Greensight\LaravelElasticQuery\Contracts\AggregationsBuilder;
-use Greensight\LaravelElasticQuerySpecification\Exceptions\InvalidQueryException;
-use Greensight\LaravelElasticQuerySpecification\Exceptions\NotUniqueNameException;
-use Greensight\LaravelElasticQuerySpecification\Processors\AggregateProcessor;
-use Greensight\LaravelElasticQuerySpecification\Specification\Specification;
-use Greensight\LaravelElasticQuerySpecification\Tests\Unit\Processors\FluentProcessor;
+use Ensi\LaravelElasticQuery\Contracts\AggregationsBuilder;
+use Ensi\LaravelElasticQuerySpecification\Exceptions\InvalidQueryException;
+use Ensi\LaravelElasticQuerySpecification\Exceptions\NotUniqueNameException;
+use Ensi\LaravelElasticQuerySpecification\Processors\AggregateProcessor;
+use Ensi\LaravelElasticQuerySpecification\Specification\Specification;
+use Ensi\LaravelElasticQuerySpecification\Tests\Unit\Processors\FluentProcessor;
 
 uses()->group('unit');
 

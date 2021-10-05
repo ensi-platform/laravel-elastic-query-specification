@@ -1,6 +1,6 @@
 <?php
 
-namespace Greensight\LaravelElasticQuerySpecification\Contracts;
+namespace Ensi\LaravelElasticQuerySpecification\Contracts;
 
 use Illuminate\Support\Collection;
 

@@ -1,9 +1,9 @@
 <?php
 
-namespace Greensight\LaravelElasticQuerySpecification\Tests\Unit\Processors;
+namespace Ensi\LaravelElasticQuerySpecification\Tests\Unit\Processors;
 
-use Greensight\LaravelElasticQuerySpecification\Specification\Specification;
-use Greensight\LaravelElasticQuerySpecification\Specification\Visitor;
+use Ensi\LaravelElasticQuerySpecification\Specification\Specification;
+use Ensi\LaravelElasticQuerySpecification\Specification\Visitor;
 use Illuminate\Support\Collection;
 
 class FluentProcessor

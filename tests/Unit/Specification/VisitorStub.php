@@ -1,10 +1,10 @@
 <?php
 
-namespace Greensight\LaravelElasticQuerySpecification\Tests\Unit\Specification;
+namespace Ensi\LaravelElasticQuerySpecification\Tests\Unit\Specification;
 
-use Greensight\LaravelElasticQuerySpecification\Specification\CompositeSpecification;
-use Greensight\LaravelElasticQuerySpecification\Specification\Specification;
-use Greensight\LaravelElasticQuerySpecification\Specification\Visitor;
+use Ensi\LaravelElasticQuerySpecification\Specification\CompositeSpecification;
+use Ensi\LaravelElasticQuerySpecification\Specification\Specification;
+use Ensi\LaravelElasticQuerySpecification\Specification\Visitor;
 
 class VisitorStub implements Visitor
 {

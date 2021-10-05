@@ -1,10 +1,10 @@
 <?php
 
-namespace Greensight\LaravelElasticQuerySpecification\Sorting;
+namespace Ensi\LaravelElasticQuerySpecification\Sorting;
 
-use Greensight\LaravelElasticQuerySpecification\Contracts\Sort;
-use Greensight\LaravelElasticQuerySpecification\Specification\Specification;
-use Greensight\LaravelElasticQuery\Contracts\SortableQuery;
+use Ensi\LaravelElasticQuerySpecification\Contracts\Sort;
+use Ensi\LaravelElasticQuerySpecification\Specification\Specification;
+use Ensi\LaravelElasticQuery\Contracts\SortableQuery;
 
 class NestedSort implements Sort
 {

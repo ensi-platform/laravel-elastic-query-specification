@@ -1,9 +1,9 @@
 <?php
 
-namespace Greensight\LaravelElasticQuerySpecification\Sorting;
+namespace Ensi\LaravelElasticQuerySpecification\Sorting;
 
-use Greensight\LaravelElasticQuerySpecification\Contracts\SortAction;
-use Greensight\LaravelElasticQuery\Contracts\SortableQuery;
+use Ensi\LaravelElasticQuerySpecification\Contracts\SortAction;
+use Ensi\LaravelElasticQuery\Contracts\SortableQuery;
 
 class FieldSortAction implements SortAction
 {

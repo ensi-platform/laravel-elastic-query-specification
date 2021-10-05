@@ -1,6 +1,6 @@
 <?php
 
-namespace Greensight\LaravelElasticQuerySpecification\Concerns;
+namespace Ensi\LaravelElasticQuerySpecification\Concerns;
 
 use Illuminate\Support\Collection;
 

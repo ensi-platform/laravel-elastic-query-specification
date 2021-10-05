@@ -1,7 +1,7 @@
 <?php
 
-use Greensight\LaravelElasticQuery\Contracts\BoolQuery;
-use Greensight\LaravelElasticQuerySpecification\Filtering\ExactFilterAction;
+use Ensi\LaravelElasticQuery\Contracts\BoolQuery;
+use Ensi\LaravelElasticQuerySpecification\Filtering\ExactFilterAction;
 
 uses()->group('unit');
 

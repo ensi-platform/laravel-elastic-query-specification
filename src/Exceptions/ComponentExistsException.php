@@ -1,6 +1,6 @@
 <?php
 
-namespace Greensight\LaravelElasticQuerySpecification\Exceptions;
+namespace Ensi\LaravelElasticQuerySpecification\Exceptions;
 
 use Exception;
 

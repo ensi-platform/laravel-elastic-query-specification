@@ -1,13 +1,13 @@
 <?php
 
-namespace Greensight\LaravelElasticQuerySpecification\Processors;
+namespace Ensi\LaravelElasticQuerySpecification\Processors;
 
-use Greensight\LaravelElasticQuerySpecification\Agregating\AllowedAggregate;
-use Greensight\LaravelElasticQuerySpecification\Exceptions\InvalidQueryException;
-use Greensight\LaravelElasticQuerySpecification\Exceptions\NotUniqueNameException;
-use Greensight\LaravelElasticQuerySpecification\Specification\Specification;
-use Greensight\LaravelElasticQuerySpecification\Specification\Visitor;
-use Greensight\LaravelElasticQuery\Contracts\AggregationsBuilder;
+use Ensi\LaravelElasticQuerySpecification\Agregating\AllowedAggregate;
+use Ensi\LaravelElasticQuerySpecification\Exceptions\InvalidQueryException;
+use Ensi\LaravelElasticQuerySpecification\Exceptions\NotUniqueNameException;
+use Ensi\LaravelElasticQuerySpecification\Specification\Specification;
+use Ensi\LaravelElasticQuerySpecification\Specification\Visitor;
+use Ensi\LaravelElasticQuery\Contracts\AggregationsBuilder;
 use Illuminate\Support\Collection;
 
 class AggregateProcessor implements Visitor

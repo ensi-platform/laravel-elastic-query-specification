@@ -1,8 +1,8 @@
 <?php
 
-use Greensight\LaravelElasticQuery\Contracts\BoolQuery;
-use Greensight\LaravelElasticQuerySpecification\Contracts\FilterAction;
-use Greensight\LaravelElasticQuerySpecification\Filtering\AllowedFilter;
+use Ensi\LaravelElasticQuery\Contracts\BoolQuery;
+use Ensi\LaravelElasticQuerySpecification\Contracts\FilterAction;
+use Ensi\LaravelElasticQuerySpecification\Filtering\AllowedFilter;
 
 uses()->group('unit');
 

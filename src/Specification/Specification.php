@@ -1,14 +1,14 @@
 <?php
 
-namespace Greensight\LaravelElasticQuerySpecification\Specification;
+namespace Ensi\LaravelElasticQuerySpecification\Specification;
 
 use Closure;
-use Greensight\LaravelElasticQuerySpecification\Agregating\AllowedAggregate;
-use Greensight\LaravelElasticQuerySpecification\Contracts\Constraint;
-use Greensight\LaravelElasticQuerySpecification\Exceptions\ComponentExistsException;
-use Greensight\LaravelElasticQuerySpecification\Filtering\AllowedFilter;
-use Greensight\LaravelElasticQuerySpecification\Sorting\AllowedSort;
-use Greensight\LaravelElasticQuery\Contracts\BoolQuery;
+use Ensi\LaravelElasticQuerySpecification\Agregating\AllowedAggregate;
+use Ensi\LaravelElasticQuerySpecification\Contracts\Constraint;
+use Ensi\LaravelElasticQuerySpecification\Exceptions\ComponentExistsException;
+use Ensi\LaravelElasticQuerySpecification\Filtering\AllowedFilter;
+use Ensi\LaravelElasticQuerySpecification\Sorting\AllowedSort;
+use Ensi\LaravelElasticQuery\Contracts\BoolQuery;
 use Illuminate\Support\Collection;
 
 class Specification

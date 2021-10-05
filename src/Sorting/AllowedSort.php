@@ -1,12 +1,12 @@
 <?php
 
-namespace Greensight\LaravelElasticQuerySpecification\Sorting;
+namespace Ensi\LaravelElasticQuerySpecification\Sorting;
 
-use Greensight\LaravelElasticQuerySpecification\Contracts\Sort;
-use Greensight\LaravelElasticQuerySpecification\Contracts\SortAction;
-use Greensight\LaravelElasticQuery\Contracts\SortableQuery;
-use Greensight\LaravelElasticQuery\Contracts\SortMode;
-use Greensight\LaravelElasticQuery\Contracts\SortOrder;
+use Ensi\LaravelElasticQuerySpecification\Contracts\Sort;
+use Ensi\LaravelElasticQuerySpecification\Contracts\SortAction;
+use Ensi\LaravelElasticQuery\Contracts\SortableQuery;
+use Ensi\LaravelElasticQuery\Contracts\SortMode;
+use Ensi\LaravelElasticQuery\Contracts\SortOrder;
 use Illuminate\Support\Str;
 use Webmozart\Assert\Assert;
 

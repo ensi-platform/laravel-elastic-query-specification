@@ -1,11 +1,11 @@
 <?php
 
-namespace Greensight\LaravelElasticQuerySpecification;
+namespace Ensi\LaravelElasticQuerySpecification;
 
 use Generator;
-use Greensight\LaravelElasticQuerySpecification\Contracts\QueryParameters;
-use Greensight\LaravelElasticQuerySpecification\Specification\CompositeSpecification;
-use Greensight\LaravelElasticQuerySpecification\Specification\Visitor;
+use Ensi\LaravelElasticQuerySpecification\Contracts\QueryParameters;
+use Ensi\LaravelElasticQuerySpecification\Specification\CompositeSpecification;
+use Ensi\LaravelElasticQuerySpecification\Specification\Visitor;
 use Illuminate\Contracts\Validation\ValidatesWhenResolved;
 use Illuminate\Support\Traits\ForwardsCalls;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Greensight\LaravelElasticQuerySpecification\Specification;
+namespace Ensi\LaravelElasticQuerySpecification\Specification;
 
 use Webmozart\Assert\Assert;
 

@@ -1,9 +1,9 @@
 <?php
 
-namespace Greensight\LaravelElasticQuerySpecification;
+namespace Ensi\LaravelElasticQuerySpecification;
 
-use Greensight\LaravelElasticQuerySpecification\Concerns\ExtractsQueryParameters;
-use Greensight\LaravelElasticQuerySpecification\Contracts\QueryParameters;
+use Ensi\LaravelElasticQuerySpecification\Concerns\ExtractsQueryParameters;
+use Ensi\LaravelElasticQuerySpecification\Contracts\QueryParameters;
 
 class CustomParameters implements QueryParameters
 {

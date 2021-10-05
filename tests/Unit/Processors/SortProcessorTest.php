@@ -1,12 +1,12 @@
 <?php
 
-use Greensight\LaravelElasticQuery\Contracts\SortableQuery;
-use Greensight\LaravelElasticQuery\Contracts\SortOrder;
-use Greensight\LaravelElasticQuerySpecification\Exceptions\InvalidQueryException;
-use Greensight\LaravelElasticQuerySpecification\Exceptions\NotUniqueNameException;
-use Greensight\LaravelElasticQuerySpecification\Processors\SortProcessor;
-use Greensight\LaravelElasticQuerySpecification\Specification\Specification;
-use Greensight\LaravelElasticQuerySpecification\Tests\Unit\Processors\FluentProcessor;
+use Ensi\LaravelElasticQuery\Contracts\SortableQuery;
+use Ensi\LaravelElasticQuery\Contracts\SortOrder;
+use Ensi\LaravelElasticQuerySpecification\Exceptions\InvalidQueryException;
+use Ensi\LaravelElasticQuerySpecification\Exceptions\NotUniqueNameException;
+use Ensi\LaravelElasticQuerySpecification\Processors\SortProcessor;
+use Ensi\LaravelElasticQuerySpecification\Specification\Specification;
+use Ensi\LaravelElasticQuerySpecification\Tests\Unit\Processors\FluentProcessor;
 
 uses()->group('unit');
 

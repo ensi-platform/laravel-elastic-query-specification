@@ -1,11 +1,11 @@
 <?php
 
-namespace Greensight\LaravelElasticQuerySpecification\Processors;
+namespace Ensi\LaravelElasticQuerySpecification\Processors;
 
-use Greensight\LaravelElasticQuerySpecification\Filtering\AllowedFilter;
-use Greensight\LaravelElasticQuerySpecification\Specification\Specification;
-use Greensight\LaravelElasticQuerySpecification\Specification\Visitor;
-use Greensight\LaravelElasticQuery\Contracts\BoolQuery;
+use Ensi\LaravelElasticQuerySpecification\Filtering\AllowedFilter;
+use Ensi\LaravelElasticQuerySpecification\Specification\Specification;
+use Ensi\LaravelElasticQuerySpecification\Specification\Visitor;
+use Ensi\LaravelElasticQuery\Contracts\BoolQuery;
 
 class ConstraintProcessor implements Visitor
 {

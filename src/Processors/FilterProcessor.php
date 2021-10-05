@@ -1,10 +1,10 @@
 <?php
 
-namespace Greensight\LaravelElasticQuerySpecification\Processors;
+namespace Ensi\LaravelElasticQuerySpecification\Processors;
 
-use Greensight\LaravelElasticQuerySpecification\Exceptions\InvalidQueryException;
-use Greensight\LaravelElasticQuerySpecification\Specification\Specification;
-use Greensight\LaravelElasticQuerySpecification\Specification\Visitor;
+use Ensi\LaravelElasticQuerySpecification\Exceptions\InvalidQueryException;
+use Ensi\LaravelElasticQuerySpecification\Specification\Specification;
+use Ensi\LaravelElasticQuerySpecification\Specification\Visitor;
 use Illuminate\Support\Collection;
 
 class FilterProcessor implements Visitor

@@ -1,14 +1,14 @@
 <?php
 
-use Greensight\LaravelElasticQuery\Aggregating\AggregationsQuery;
-use Greensight\LaravelElasticQuery\Search\SearchQuery;
-use Greensight\LaravelElasticQuerySpecification\Contracts\QueryParameters;
-use Greensight\LaravelElasticQuerySpecification\CustomParameters;
-use Greensight\LaravelElasticQuerySpecification\Specification\CompositeSpecification;
-use Greensight\LaravelElasticQuerySpecification\Tests\Integration\TestAggregationResults;
-use Greensight\LaravelElasticQuerySpecification\Tests\Integration\TestSearchResults;
-use Greensight\LaravelElasticQuerySpecification\Tests\TestCase;
-use Greensight\LaravelElasticQuerySpecification\Tests\UnitTestCase;
+use Ensi\LaravelElasticQuery\Aggregating\AggregationsQuery;
+use Ensi\LaravelElasticQuery\Search\SearchQuery;
+use Ensi\LaravelElasticQuerySpecification\Contracts\QueryParameters;
+use Ensi\LaravelElasticQuerySpecification\CustomParameters;
+use Ensi\LaravelElasticQuerySpecification\Specification\CompositeSpecification;
+use Ensi\LaravelElasticQuerySpecification\Tests\Integration\TestAggregationResults;
+use Ensi\LaravelElasticQuerySpecification\Tests\Integration\TestSearchResults;
+use Ensi\LaravelElasticQuerySpecification\Tests\TestCase;
+use Ensi\LaravelElasticQuerySpecification\Tests\UnitTestCase;
 use Mockery\Matcher\Any;
 use Mockery\MockInterface;
 

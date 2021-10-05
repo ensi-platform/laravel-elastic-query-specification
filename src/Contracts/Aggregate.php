@@ -1,8 +1,8 @@
 <?php
 
-namespace Greensight\LaravelElasticQuerySpecification\Contracts;
+namespace Ensi\LaravelElasticQuerySpecification\Contracts;
 
-use Greensight\LaravelElasticQuery\Contracts\AggregationsBuilder;
+use Ensi\LaravelElasticQuery\Contracts\AggregationsBuilder;
 
 interface Aggregate
 {

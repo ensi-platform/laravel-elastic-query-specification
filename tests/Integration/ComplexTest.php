@@ -1,8 +1,8 @@
 <?php
 
-use Greensight\LaravelElasticQuerySpecification\QueryBuilderRequest;
-use Greensight\LaravelElasticQuerySpecification\Tests\Data\ProductSpecification;
-use Greensight\LaravelElasticQuerySpecification\Tests\Integration\TestSearchResults;
+use Ensi\LaravelElasticQuerySpecification\QueryBuilderRequest;
+use Ensi\LaravelElasticQuerySpecification\Tests\Data\ProductSpecification;
+use Ensi\LaravelElasticQuerySpecification\Tests\Integration\TestSearchResults;
 use Illuminate\Http\Request;
 
 uses()->group('integration');

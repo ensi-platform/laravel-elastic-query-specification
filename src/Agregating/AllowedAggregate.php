@@ -1,10 +1,10 @@
 <?php
 
-namespace Greensight\LaravelElasticQuerySpecification\Agregating;
+namespace Ensi\LaravelElasticQuerySpecification\Agregating;
 
-use Greensight\LaravelElasticQuerySpecification\Contracts\Aggregate;
-use Greensight\LaravelElasticQuerySpecification\Contracts\AggregateAction;
-use Greensight\LaravelElasticQuery\Contracts\AggregationsBuilder;
+use Ensi\LaravelElasticQuerySpecification\Contracts\Aggregate;
+use Ensi\LaravelElasticQuerySpecification\Contracts\AggregateAction;
+use Ensi\LaravelElasticQuery\Contracts\AggregationsBuilder;
 use Webmozart\Assert\Assert;
 
 class AllowedAggregate implements Aggregate
