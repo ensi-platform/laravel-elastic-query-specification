@@ -35,12 +35,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Greensight\\LaravelElasticQuerySpecification\\": "src"
+            "Ensi\\LaravelElasticQuerySpecification\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Greensight\\LaravelElasticQuerySpecification\\Tests\\": "tests"
+            "Ensi\\LaravelElasticQuerySpecification\\Tests\\": "tests"
         }
     },
     "scripts": {

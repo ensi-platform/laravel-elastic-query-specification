@@ -7,17 +7,16 @@ Extension for [ensi/laravel-elastic-query](https://github.com/ensi-platform/lara
 1. Install [ensi/laravel-elastic-query](https://github.com/ensi-platform/laravel-elastic-query/) https://github.com/ensi-platform/laravel-elastic-query#installation
 2. `composer require ensi/laravel-elastic-query-specification`
 
-## Usage // TODO translate to english
+## Usage
 
-Все виды декларативных запросов строятся на основе спецификации. В ней содержатся определения доступных фильтров, сортировок и
-агрегатов.
+All types of declarative queries are based on the specification. It contains definitions of available filters, sorts, and aggregates.
 
 ```php
-use Ensi\LaravelElasticQuery\Declarative\Agregating\AllowedAggregate;
-use Ensi\LaravelElasticQuery\Declarative\Filtering\AllowedFilter;
-use Ensi\LaravelElasticQuery\Declarative\Sorting\AllowedSort;
-use Ensi\LaravelElasticQuery\Declarative\Specification\CompositeSpecification;
-use Ensi\LaravelElasticQuery\Declarative\Specification\Specification;
+use Ensi\LaravelElasticQuerySpecification\Agregating\AllowedAggregate;
+use Ensi\LaravelElasticQuerySpecification\Filtering\AllowedFilter;
+use Ensi\LaravelElasticQuerySpecification\Sorting\AllowedSort;
+use Ensi\LaravelElasticQuerySpecification\Specification\CompositeSpecification;
+use Ensi\LaravelElasticQuerySpecification\Specification\Specification;
 
 class ProductSpecification extends CompositeSpecification
 {
@@ -56,7 +55,7 @@ class ProductSpecification extends CompositeSpecification
 }
 ```
 
-Примеры запросов для данной спецификации.
+Here are examples of queries for this specification.
 ```json
 {
  "sort": ["+price", "-rating"],
@@ -75,30 +74,32 @@ class ProductSpecification extends CompositeSpecification
  }
 }
 ```
-Метод `nested` добавляет спецификации для вложенных документов. Имена фильтров, агрегатов и сортировок из них
-экспортируются в глобальную область видимости без добавления каких-либо префиксов. Если для фильтров допустимо иметь
-одинаковые имена, то для прочих компонентов нет.
+
+The `nested` method adds specifications for nested documents. The names of filters, aggregates, and sorts are exported
+from them to the global scope without adding any prefixes. It is acceptable to have the same names for filters, but not
+for other components.
 
 ```php
 $this->nested('nested_field', function (Specification $spec) { ... })
 $this->nested('nested_field', new SomeSpecificationImpl());
 ```
 
-В спецификациях для вложенных документов могут использоваться только поля этих документов.
+In the specifications for nested documents, only the fields of these documents can be used.
 
-Допустимо добавлять несколько спецификаций для одного и того же поля типа `nested`.
+It is acceptable to add several specifications for the same `nested` field.
 
-Ограничения `where*` позволяют устанавливать дополнительные программные условия отбора, которые не могут быть изменены
-клиентом. Ограничения, заданные в корневой спецификации, применяются всегда. Ограничения во вложенных спецификациях идут
-только как дополнения к добавляемым в запрос фильтрам, агрегатам или сортировкам. Например, если во вложенной
-спецификации нет ни одного активного фильтра, то в раздел фильтров запроса к Elasticsearch ограничения из этой
-спецификации не попадут.
+The `where*` constraints allow you to set additional program selection conditions that cannot be changed by the client.
+The constraints specified in the root specification are always applied. Constraints in the nested specifications are
+only used as additions to filters, aggregates, or sorts added to the query. For example, if there is no active filter
+in the nested specification, then the constraints from this specification will not fall into the filters section
+of the Elasticsearch query.
 
-Метод `allowedFilters` определяет доступные для клиента фильтры. Каждый фильтр обязательно содержит уникальное в пределах
-спецификации имя. В то же время, в корневой и вложенной спецификациях или в разных вложенных спецификациях, имена могут
-повторяться. Все фильтры с одинаковыми именами будут заполнены одним значением из параметров запроса.
+The `allowedFilters` method determines the filters available to the client. Each filter must contain a unique name within
+the specification. At the same time, in the root and nested specifications or in different nested specifications,
+the names may be repeated. All filters with the same name will be filled with one value from the query parameters.
 
-Кроме имени самого фильтра можно отдельно задать имя поля в индексе, для которого он применяется, и значение по умолчанию.
+In addition to the name of the filter itself, you can separately specify the name of the field in the index for which
+it is applied, and the default value.
 
 ```php
 $this->allowedFilters([AllowedFilter::exact('name', 'field')->default(500)]);
@@ -108,16 +109,16 @@ $this->allowedFilters(['name']);
 $this->allowedFilters([AllowedFilter::exact('name', 'name')]);
 ```
 
-Виды фильтров
+Types of filters
 
 ```php
-AllowedFilter::exact('name', 'field');  // Значение поля проверяется на равенство одному из заданных
-AllowedFilter::exists('name', 'field'); // Проверяется, что поле присутствует в документе и имеет ненулевое значение
+AllowedFilter::exact('name', 'field');  // The field value is checked for equality to one of the specified
+AllowedFilter::exists('name', 'field'); // There is a check that the field is in the document and has a non-zero value.
 ```
 
-Доступные клиенту сортировки добавляются методом `allowedSorts`. Направление сортировки задается в ее имени.
-Знак `+` или отсутствие знака соответствует порядку по возрастанию, `-` - порядку по убыванию.
-По умолчанию используется сортировка по возрастанию с выбором минимального, в случае нескольких значений в поле.
+The sorts available to the client are added by the `allowedSorts` method. The sorting direction is set in its name.
+The sign `+` or the absence of a sign corresponds to the ascending order, `-` to the descending order.
+By default, ascending sorting is used with the minimum selection, if there are several values in the field.
 
 ```php
 $this->allowedSorts([AllowedSort::field('name', 'field')]);
@@ -135,10 +136,10 @@ $this->allowedSorts([AllowedSort::field('name', 'field')->bySum()]);
 $this->allowedSorts([AllowedSort::field('name', 'field')->byMedian()]);
 ```
 
-Для сортировки из вложенной спецификации учитываются все ограничения и активные фильтры из этой же спецификации.
+To sort from a nested specification, all constraints and active filters from the same specification are taken into account.
 
-Агрегаты объявляются методом `allowedAggregates`. Клиент в параметрах запроса указывает список имен агрегатов, результаты
-которых он ожидает в ответе.
+Aggregates are declared with the `allowedAggregates` method. The client specifies in the query parameters a list of names
+of aggregates, the results of which he expects in the response.
 
 ```php
 $this->allowedAggregates([AllowedAggregate::terms('name', 'field')]);
@@ -148,20 +149,20 @@ $this->allowedAggregates(['name']);
 $this->allowedAggregates([AllowedAggregate::terms('name', 'name')]);
 ```
 
-Виды агрегатов
+Types of aggregates
 
 ```php
 AllowedAggregate::terms('name', 'field');   // Get all variants of attribute values
 AllowedAggregate::minmax('name', 'field');  // Get min and max attribute values
 ```
 
-Агрегаты из вложенных спецификаций добавляются в запрос к Elasticsearch со всеми ограничениями и активными фильтрами.
+Aggregates from nested specifications are added to the Elasticsearch query with all constraints and active filters.
 
-## Поиск документов
+## Search for documents
 
 ```php
-use Ensi\LaravelElasticQuery\Declarative\SearchQueryBuilder;
-use Ensi\LaravelElasticQuery\Declarative\QueryBuilderRequest;
+use Ensi\LaravelElasticQuerySpecification\SearchQueryBuilder;
+use Ensi\LaravelElasticQuerySpecification\QueryBuilderRequest;
 
 class ProductsSearchQuery extends SearchQueryBuilder
 {
@@ -183,11 +184,11 @@ class ProductsController
 }
 ```
 
-## Расчет сводных показателей
+## Calculation of summary indicators
 
 ```php
-use Ensi\LaravelElasticQuery\Declarative\AggregateQueryBuilder;
-use Ensi\LaravelElasticQuery\Declarative\QueryBuilderRequest;
+use Ensi\LaravelElasticQuerySpecification\AggregateQueryBuilder;
+use Ensi\LaravelElasticQuerySpecification\QueryBuilderRequest;
 
 class ProductsAggregateQuery extends AggregateQueryBuilder
 {
