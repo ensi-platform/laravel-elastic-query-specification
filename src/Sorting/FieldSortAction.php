@@ -2,8 +2,8 @@
 
 namespace Ensi\LaravelElasticQuerySpecification\Sorting;
 
-use Ensi\LaravelElasticQuerySpecification\Contracts\SortAction;
 use Ensi\LaravelElasticQuery\Contracts\SortableQuery;
+use Ensi\LaravelElasticQuerySpecification\Contracts\SortAction;
 
 class FieldSortAction implements SortAction
 {

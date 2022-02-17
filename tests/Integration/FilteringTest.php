@@ -44,19 +44,19 @@ test('nested', function () {
     searchQuery($spec, $request)->assertDocumentIds([328]);
 });
 
-test('validate names' , function () {
+test('validate names', function () {
     $spec = CompositeSpecification::new()->allowedFilters(['code', 'active']);
     $request = [
         'filter' => ['code' => 'tv', 'unknown' => 10],
     ];
 
-    expect(fn() => searchQuery($spec, $request))
+    expect(fn () => searchQuery($spec, $request))
         ->toThrow(InvalidQueryException::class);
 });
 
 test('exists filter', function (bool $value, int $expectedCount) {
     $spec = CompositeSpecification::new()->allowedFilters([
-        AllowedFilter::exists('cashback', 'cashback.active')
+        AllowedFilter::exists('cashback', 'cashback.active'),
     ]);
     $request = ['filter' => ['cashback' => $value]];
 

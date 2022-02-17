@@ -2,10 +2,10 @@
 
 namespace Ensi\LaravelElasticQuerySpecification;
 
-use Generator;
 use Ensi\LaravelElasticQuerySpecification\Contracts\QueryParameters;
 use Ensi\LaravelElasticQuerySpecification\Specification\CompositeSpecification;
 use Ensi\LaravelElasticQuerySpecification\Specification\Visitor;
+use Generator;
 use Illuminate\Contracts\Validation\ValidatesWhenResolved;
 use Illuminate\Support\Traits\ForwardsCalls;
 

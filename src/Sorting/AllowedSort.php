@@ -2,11 +2,11 @@
 
 namespace Ensi\LaravelElasticQuerySpecification\Sorting;
 
-use Ensi\LaravelElasticQuerySpecification\Contracts\Sort;
-use Ensi\LaravelElasticQuerySpecification\Contracts\SortAction;
 use Ensi\LaravelElasticQuery\Contracts\SortableQuery;
 use Ensi\LaravelElasticQuery\Contracts\SortMode;
 use Ensi\LaravelElasticQuery\Contracts\SortOrder;
+use Ensi\LaravelElasticQuerySpecification\Contracts\Sort;
+use Ensi\LaravelElasticQuerySpecification\Contracts\SortAction;
 use Illuminate\Support\Str;
 use Webmozart\Assert\Assert;
 
@@ -55,6 +55,7 @@ class AllowedSort implements Sort
         Assert::oneOf($value, SortMode::cases());
 
         $this->mode = $value;
+
         return $this;
     }
 

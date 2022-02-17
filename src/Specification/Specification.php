@@ -3,12 +3,12 @@
 namespace Ensi\LaravelElasticQuerySpecification\Specification;
 
 use Closure;
+use Ensi\LaravelElasticQuery\Contracts\BoolQuery;
 use Ensi\LaravelElasticQuerySpecification\Agregating\AllowedAggregate;
 use Ensi\LaravelElasticQuerySpecification\Contracts\Constraint;
 use Ensi\LaravelElasticQuerySpecification\Exceptions\ComponentExistsException;
 use Ensi\LaravelElasticQuerySpecification\Filtering\AllowedFilter;
 use Ensi\LaravelElasticQuerySpecification\Sorting\AllowedSort;
-use Ensi\LaravelElasticQuery\Contracts\BoolQuery;
 use Illuminate\Support\Collection;
 
 class Specification
@@ -40,6 +40,7 @@ class Specification
 
             $this->addConstraint($filter);
         }
+
         return $this;
     }
 
@@ -60,6 +61,7 @@ class Specification
 
             $this->addComponent($this->sorts, $sort->name(), $sort, 'sort');
         }
+
         return $this;
     }
 
@@ -125,7 +127,7 @@ class Specification
     private function addStandardConstraint(string $method, array $params): static
     {
         return $this->addConstraint(
-            fn(BoolQuery $query) => $query->{$method}(...$params)
+            fn (BoolQuery $query) => $query->{$method}(...$params)
         );
     }
     //endregion

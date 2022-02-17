@@ -14,7 +14,7 @@ test('not allowed filters', function () {
     $processor = new FilterProcessor(collect(['foo' => 1, 'baz' => 2]));
     $processor->visitRoot($spec);
 
-    expect(fn() => $processor->done())
+    expect(fn () => $processor->done())
         ->toThrow(InvalidQueryException::class);
 });
 

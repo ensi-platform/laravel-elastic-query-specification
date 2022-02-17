@@ -2,11 +2,11 @@
 
 namespace Ensi\LaravelElasticQuerySpecification;
 
-use Generator;
+use Ensi\LaravelElasticQuery\Aggregating\AggregationsQuery;
 use Ensi\LaravelElasticQuerySpecification\Processors\AggregateProcessor;
 use Ensi\LaravelElasticQuerySpecification\Processors\ConstraintProcessor;
 use Ensi\LaravelElasticQuerySpecification\Processors\FilterProcessor;
-use Ensi\LaravelElasticQuery\Aggregating\AggregationsQuery;
+use Generator;
 
 /**
  * @mixin AggregationsQuery

@@ -52,6 +52,6 @@ test('validate names', function () {
     $spec = CompositeSpecification::new()->allowedSorts(['rating']);
     $request = ['sort' => ['unknown', 'rating']];
 
-    expect(fn() => searchQuery($spec, $request))
+    expect(fn () => searchQuery($spec, $request))
         ->toThrow(InvalidQueryException::class);
 });

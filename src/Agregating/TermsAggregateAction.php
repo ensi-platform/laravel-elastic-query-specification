@@ -2,8 +2,8 @@
 
 namespace Ensi\LaravelElasticQuerySpecification\Agregating;
 
-use Ensi\LaravelElasticQuerySpecification\Contracts\AggregateAction;
 use Ensi\LaravelElasticQuery\Contracts\AggregationsBuilder;
+use Ensi\LaravelElasticQuerySpecification\Contracts\AggregateAction;
 
 class TermsAggregateAction implements AggregateAction
 {

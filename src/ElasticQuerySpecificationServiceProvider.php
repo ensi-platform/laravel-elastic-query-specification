@@ -16,7 +16,7 @@ class ElasticQuerySpecificationServiceProvider extends PackageServiceProvider
 
         $this->app->bind(
             QueryBuilderRequest::class,
-            fn(Application $app) => QueryBuilderRequest::fromRequest($app['request'])
+            fn (Application $app) => QueryBuilderRequest::fromRequest($app['request'])
         );
     }
 

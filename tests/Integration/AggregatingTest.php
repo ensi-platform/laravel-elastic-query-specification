@@ -78,5 +78,5 @@ test('validate names', function () {
     $spec = CompositeSpecification::new()->allowedAggregates(['tags']);
     $request = ['aggregate' => ['tags', 'unknown']];
 
-    expect(fn() => aggQuery($spec, $request))->toThrow(InvalidQueryException::class);
+    expect(fn () => aggQuery($spec, $request))->toThrow(InvalidQueryException::class);
 });

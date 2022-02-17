@@ -3,8 +3,8 @@
 namespace Ensi\LaravelElasticQuerySpecification\Specification;
 
 use Closure;
-use Ensi\LaravelElasticQuerySpecification\Contracts\Constraint;
 use Ensi\LaravelElasticQuery\Contracts\BoolQuery;
+use Ensi\LaravelElasticQuerySpecification\Contracts\Constraint;
 
 final class CallbackConstraint implements Constraint
 {

@@ -33,8 +33,8 @@ trait ExtractsQueryParameters
     protected function extractNames(string $key): Collection
     {
         return collect($this->extractArray($key))
-            ->map(fn(string $name) => trim($name))
-            ->filter(fn(string $name) => !blank($name))
+            ->map(fn (string $name) => trim($name))
+            ->filter(fn (string $name) => !blank($name))
             ->values();
     }
 
@@ -56,7 +56,7 @@ trait ExtractsQueryParameters
     protected function getFilterValue(mixed $source): mixed
     {
         if (is_array($source)) {
-            return array_map(fn($item) => $this->getFilterValue($item), $source);
+            return array_map(fn ($item) => $this->getFilterValue($item), $source);
         }
 
         if ($source === 'true') {

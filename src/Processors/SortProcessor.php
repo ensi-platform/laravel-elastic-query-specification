@@ -2,15 +2,14 @@
 
 namespace Ensi\LaravelElasticQuerySpecification\Processors;
 
+use Ensi\LaravelElasticQuery\Contracts\SortableQuery;
 use Ensi\LaravelElasticQuerySpecification\Contracts\Sort;
-use Ensi\LaravelElasticQuerySpecification\Exceptions\ComponentExistsException;
 use Ensi\LaravelElasticQuerySpecification\Exceptions\InvalidQueryException;
 use Ensi\LaravelElasticQuerySpecification\Exceptions\NotUniqueNameException;
 use Ensi\LaravelElasticQuerySpecification\Sorting\AllowedSort;
 use Ensi\LaravelElasticQuerySpecification\Sorting\NestedSort;
 use Ensi\LaravelElasticQuerySpecification\Specification\Specification;
 use Ensi\LaravelElasticQuerySpecification\Specification\Visitor;
-use Ensi\LaravelElasticQuery\Contracts\SortableQuery;
 use Illuminate\Support\Collection;
 
 class SortProcessor implements Visitor

@@ -2,9 +2,9 @@
 
 namespace Ensi\LaravelElasticQuerySpecification\Agregating;
 
+use Ensi\LaravelElasticQuery\Contracts\AggregationsBuilder;
 use Ensi\LaravelElasticQuerySpecification\Contracts\Aggregate;
 use Ensi\LaravelElasticQuerySpecification\Contracts\AggregateAction;
-use Ensi\LaravelElasticQuery\Contracts\AggregationsBuilder;
 use Webmozart\Assert\Assert;
 
 class AllowedAggregate implements Aggregate

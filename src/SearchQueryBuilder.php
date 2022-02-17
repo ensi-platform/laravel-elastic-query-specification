@@ -2,11 +2,11 @@
 
 namespace Ensi\LaravelElasticQuerySpecification;
 
-use Generator;
+use Ensi\LaravelElasticQuery\Search\SearchQuery;
 use Ensi\LaravelElasticQuerySpecification\Processors\ConstraintProcessor;
 use Ensi\LaravelElasticQuerySpecification\Processors\FilterProcessor;
 use Ensi\LaravelElasticQuerySpecification\Processors\SortProcessor;
-use Ensi\LaravelElasticQuery\Search\SearchQuery;
+use Generator;
 
 /**
  * @mixin SearchQuery

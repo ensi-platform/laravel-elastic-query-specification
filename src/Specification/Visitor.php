@@ -2,8 +2,6 @@
 
 namespace Ensi\LaravelElasticQuerySpecification\Specification;
 
-use Ensi\LaravelElasticQuerySpecification\Specification\Specification;
-
 interface Visitor
 {
     public function visitRoot(Specification $specification): void;

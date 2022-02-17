@@ -2,12 +2,12 @@
 
 namespace Ensi\LaravelElasticQuerySpecification\Processors;
 
+use Ensi\LaravelElasticQuery\Contracts\AggregationsBuilder;
 use Ensi\LaravelElasticQuerySpecification\Agregating\AllowedAggregate;
 use Ensi\LaravelElasticQuerySpecification\Exceptions\InvalidQueryException;
 use Ensi\LaravelElasticQuerySpecification\Exceptions\NotUniqueNameException;
 use Ensi\LaravelElasticQuerySpecification\Specification\Specification;
 use Ensi\LaravelElasticQuerySpecification\Specification\Visitor;
-use Ensi\LaravelElasticQuery\Contracts\AggregationsBuilder;
 use Illuminate\Support\Collection;
 
 class AggregateProcessor implements Visitor
@@ -24,14 +24,14 @@ class AggregateProcessor implements Visitor
     public function visitRoot(Specification $specification): void
     {
         $this->getAllowedAggregates($specification)
-            ->each(fn(AllowedAggregate $agg) => $agg($this->builder));
+            ->each(fn (AllowedAggregate $agg) => $agg($this->builder));
     }
 
     public function visitNested(string $field, Specification $specification): void
     {
         $this->getAllowedAggregates($specification)
             ->whenNotEmpty(
-                fn(Collection $aggs) => $this->buildNested($field, $specification->constraints()->concat($aggs))
+                fn (Collection $aggs) => $this->buildNested($field, $specification->constraints()->concat($aggs))
             );
     }
 
@@ -47,7 +47,7 @@ class AggregateProcessor implements Visitor
     private function getAllowedAggregates(Specification $specification): Collection
     {
         return $specification->aggregates()
-            ->each(fn(AllowedAggregate $agg) => $this->addAllowedAggregate($agg))
+            ->each(fn (AllowedAggregate $agg) => $this->addAllowedAggregate($agg))
             ->intersectByKeys($this->requestedAggs);
     }
 

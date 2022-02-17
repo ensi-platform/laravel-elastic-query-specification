@@ -25,7 +25,7 @@ test('add custom constraint', function () {
 });
 
 test('add callback constraint', function () {
-    $spec = Specification::new()->addConstraint(fn() => null);
+    $spec = Specification::new()->addConstraint(fn () => null);
 
     expect($spec->constraints())
         ->each()
@@ -35,7 +35,7 @@ test('add callback constraint', function () {
 test('constraints includes filters', function () {
     $spec = Specification::new()
         ->allowedFilters(['foo'])
-        ->addConstraint(fn() => null);
+        ->addConstraint(fn () => null);
 
     expect($spec->constraints())->toHaveCount(2);
 });
@@ -55,7 +55,7 @@ test('allowed aggregates', function () {
 });
 
 test('duplicate component name', function (string $method) {
-    expect(fn() => Specification::new()->{$method}(['foo', 'bar', 'foo']))
+    expect(fn () => Specification::new()->{$method}(['foo', 'bar', 'foo']))
         ->toThrow(ComponentExistsException::class);
 })->with([
     'filter' => ['allowedFilters'],

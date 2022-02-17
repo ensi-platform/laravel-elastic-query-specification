@@ -2,9 +2,9 @@
 
 namespace Ensi\LaravelElasticQuerySpecification\Sorting;
 
+use Ensi\LaravelElasticQuery\Contracts\SortableQuery;
 use Ensi\LaravelElasticQuerySpecification\Contracts\Sort;
 use Ensi\LaravelElasticQuerySpecification\Specification\Specification;
-use Ensi\LaravelElasticQuery\Contracts\SortableQuery;
 
 class NestedSort implements Sort
 {
@@ -19,7 +19,7 @@ class NestedSort implements Sort
     {
         $query->sortByNested(
             $this->field,
-            fn(SortableQuery $nestedQuery) => $this->applyNested($nestedQuery, $order)
+            fn (SortableQuery $nestedQuery) => $this->applyNested($nestedQuery, $order)
         );
     }
 

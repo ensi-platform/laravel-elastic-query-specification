@@ -2,9 +2,9 @@
 
 namespace Ensi\LaravelElasticQuerySpecification\Filtering;
 
+use Ensi\LaravelElasticQuery\Contracts\BoolQuery;
 use Ensi\LaravelElasticQuerySpecification\Contracts\Constraint;
 use Ensi\LaravelElasticQuerySpecification\Contracts\FilterAction;
-use Ensi\LaravelElasticQuery\Contracts\BoolQuery;
 use Webmozart\Assert\Assert;
 
 class AllowedFilter implements Constraint

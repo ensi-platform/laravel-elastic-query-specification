@@ -2,10 +2,10 @@
 
 namespace Ensi\LaravelElasticQuerySpecification\Processors;
 
+use Ensi\LaravelElasticQuery\Contracts\BoolQuery;
 use Ensi\LaravelElasticQuerySpecification\Filtering\AllowedFilter;
 use Ensi\LaravelElasticQuerySpecification\Specification\Specification;
 use Ensi\LaravelElasticQuerySpecification\Specification\Visitor;
-use Ensi\LaravelElasticQuery\Contracts\BoolQuery;
 
 class ConstraintProcessor implements Visitor
 {
@@ -26,7 +26,7 @@ class ConstraintProcessor implements Visitor
 
         $this->query->whereHas(
             $field,
-            fn(BoolQuery $query) => $this->buildConstraints($query, $specification)
+            fn (BoolQuery $query) => $this->buildConstraints($query, $specification)
         );
     }
 
@@ -44,7 +44,7 @@ class ConstraintProcessor implements Visitor
     private function hasActiveFilters(Specification $specification): bool
     {
         $activeFilter = $specification->filters()
-            ->first(fn(AllowedFilter $filter) => $filter->isActive());
+            ->first(fn (AllowedFilter $filter) => $filter->isActive());
 
         return $activeFilter !== null;
     }

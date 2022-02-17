@@ -13,7 +13,7 @@ class FluentProcessor
     public function __construct(string $processorClass, mixed ...$parameters)
     {
         $parameters = array_map(
-            fn($param) => is_array($param) ? new Collection($param) : $param,
+            fn ($param) => is_array($param) ? new Collection($param) : $param,
             $parameters
         );
 

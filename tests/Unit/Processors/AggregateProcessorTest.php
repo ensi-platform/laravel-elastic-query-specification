@@ -58,6 +58,7 @@ test('nested constraints', function () {
         ->with('field', any())
         ->andReturnUsing(function ($field, callable $callback) use ($query) {
             $callback($query);
+
             return $query;
         });
 

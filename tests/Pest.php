@@ -2,7 +2,6 @@
 
 use Ensi\LaravelElasticQuery\Aggregating\AggregationsQuery;
 use Ensi\LaravelElasticQuery\Search\SearchQuery;
-use Ensi\LaravelElasticQuerySpecification\Contracts\QueryParameters;
 use Ensi\LaravelElasticQuerySpecification\CustomParameters;
 use Ensi\LaravelElasticQuerySpecification\Specification\CompositeSpecification;
 use Ensi\LaravelElasticQuerySpecification\Tests\Integration\TestAggregationResults;

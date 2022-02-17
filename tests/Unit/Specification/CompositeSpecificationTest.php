@@ -13,7 +13,7 @@ test('forward calls returns self', function () {
 });
 
 test('add nested', function () {
-    $spec = CompositeSpecification::new()->nested('foo', fn() => null);
+    $spec = CompositeSpecification::new()->nested('foo', fn () => null);
 
     expect(VisitorStub::inspect($spec)->nestedFields)->toEqual(['foo']);
 });
@@ -34,7 +34,7 @@ test('accept visit root', function () {
 });
 
 test('accept visit nested', function () {
-    $spec = CompositeSpecification::new()->nested('foo', fn() => null);
+    $spec = CompositeSpecification::new()->nested('foo', fn () => null);
 
     expect(VisitorStub::inspect($spec)->nestedSpecifications)->toHaveCount(1);
 });

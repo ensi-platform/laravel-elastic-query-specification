@@ -2,8 +2,8 @@
 
 namespace Ensi\LaravelElasticQuerySpecification\Filtering;
 
-use Ensi\LaravelElasticQuerySpecification\Contracts\FilterAction;
 use Ensi\LaravelElasticQuery\Contracts\BoolQuery;
+use Ensi\LaravelElasticQuerySpecification\Contracts\FilterAction;
 
 class ExistsFilterAction implements FilterAction
 {
