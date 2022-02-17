@@ -32,5 +32,6 @@ class TestCase extends Orchestra
     public function getEnvironmentSetUp($app)
     {
         config()->set('laravel-elastic-query.connection.hosts', explode(',', env('ELASTICSEARCH_HOSTS')));
+        config()->set('tests.recreate_index', env('RECREATE_INDEX', true));
     }
 }
