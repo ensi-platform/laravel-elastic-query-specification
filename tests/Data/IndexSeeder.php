@@ -9,11 +9,17 @@ abstract class IndexSeeder
     protected string $indexName = '';
     protected array $mappings = [];
     protected array $settings = [];
+
     protected array $fixtures = [];
 
-    protected bool $recreate = false;
+    protected bool $recreate;
 
     protected ?Client $client;
+
+    public function __construct()
+    {
+        $this->recreate = config('tests.recreate_index', true);
+    }
 
     public function setClient(Client $client): void
     {
@@ -75,16 +81,23 @@ abstract class IndexSeeder
     {
         $baseDir = __DIR__.'/fixtures/';
 
-        foreach ($this->fixtures as $fixture) {
-            $this->loadFixture($baseDir.$fixture);
+        $hasChanges = collect($this->fixtures)
+            ->reduce(
+                fn (bool $carry, string $fixture) => $this->loadFixture($baseDir.$fixture) || $carry,
+                false
+            );
+
+        if ($hasChanges) {
+            $this->client->indices()->refresh(['index' => $this->indexName]);
         }
     }
 
-    protected function loadFixture(string $path): void
+    protected function loadFixture(string $path): bool
     {
         $documents = json_decode(file_get_contents($path), true);
+
         if (empty($documents)) {
-            return;
+            return false;
         }
 
         $body = collect($documents)
@@ -92,6 +105,8 @@ abstract class IndexSeeder
             ->toArray();
 
         $this->client->bulk(['body' => $body]);
+
+        return true;
     }
 
     protected function documentToCommand(array $document, int $id): array
