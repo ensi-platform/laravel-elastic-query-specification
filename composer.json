@@ -56,7 +56,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "ElasticQuerySpecificationServiceProvider"
+                "Ensi\\LaravelElasticQuerySpecification\\ElasticQuerySpecificationServiceProvider"
             ]
         }
     }
