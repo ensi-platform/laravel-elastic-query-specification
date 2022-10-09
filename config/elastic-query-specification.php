@@ -8,5 +8,6 @@ return [
         'filter' => 'filter',
         'sort' => 'sort',
         'aggregate' => 'aggregate',
+        'facet' => 'facet',
     ],
 ];

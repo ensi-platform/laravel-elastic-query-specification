@@ -210,6 +210,32 @@ class ProductsController
 }
 ```
 
+## Determining the available facet values
+
+```php
+use Ensi\LaravelElasticQuerySpecification\FacetQueryBuilder;
+use Ensi\LaravelElasticQuerySpecification\QueryBuilderRequest;
+
+class ProductsFacetsQuery extends FacetQueryBuilder
+{
+    public function __construct(QueryBuilderRequest $request)
+    {
+        parent::__construct(ProductsIndex::aggregate(), new ProductSpecification(), $request);
+    }
+}
+```
+
+```php
+class ProductsController
+{
+    // ...
+    public function facets(ProductsFacetsQuery $query)
+    {
+        return new ProductFacetsResource($query->get());
+    }
+}
+```
+
 ## Contributing
 
 Please see [CONTRIBUTING](.github/CONTRIBUTING.md) for details.

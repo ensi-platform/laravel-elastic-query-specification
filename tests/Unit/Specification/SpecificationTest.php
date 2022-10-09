@@ -3,6 +3,7 @@
 use Ensi\LaravelElasticQuerySpecification\Agregating\AllowedAggregate;
 use Ensi\LaravelElasticQuerySpecification\Contracts\Constraint;
 use Ensi\LaravelElasticQuerySpecification\Exceptions\ComponentExistsException;
+use Ensi\LaravelElasticQuerySpecification\Faceting\AllowedFacet;
 use Ensi\LaravelElasticQuerySpecification\Filtering\AllowedFilter;
 use Ensi\LaravelElasticQuerySpecification\Sorting\AllowedSort;
 use Ensi\LaravelElasticQuerySpecification\Specification\CallbackConstraint;
@@ -52,6 +53,13 @@ test('allowed aggregates', function () {
         ->allowedAggregates(['foo', AllowedAggregate::terms('bar')]);
 
     expect($spec->aggregates())->toHaveCount(2);
+});
+
+test('allowed facets', function () {
+    $spec = Specification::new()
+        ->allowedFacets(['foo', AllowedFacet::terms('bar')]);
+
+    expect($spec->facets())->toHaveCount(2);
 });
 
 test('duplicate component name', function (string $method) {

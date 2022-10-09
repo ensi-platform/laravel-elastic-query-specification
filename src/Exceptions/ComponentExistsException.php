@@ -20,4 +20,9 @@ class ComponentExistsException extends Exception
     {
         return new self("An aggregate named $name is already registered in the specification");
     }
+
+    public static function facet(string $name): self
+    {
+        return new self("A facet named $name is already registered in the specification");
+    }
 }
