@@ -62,6 +62,20 @@ class AllowedFacet
         $this->filters[] = $filter;
     }
 
+    public function disableFilters(): void
+    {
+        foreach ($this->filters() as $filter) {
+            $filter->disable();
+        }
+    }
+
+    public function enableFilters(): void
+    {
+        foreach ($this->filters() as $filter) {
+            $filter->enable();
+        }
+    }
+
     public function aggregate(): ?AllowedAggregate
     {
         return $this->aggregate;
