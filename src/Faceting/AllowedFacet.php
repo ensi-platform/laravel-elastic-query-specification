@@ -4,6 +4,7 @@ namespace Ensi\LaravelElasticQuerySpecification\Faceting;
 
 use Ensi\LaravelElasticQuerySpecification\Agregating\AllowedAggregate;
 use Ensi\LaravelElasticQuerySpecification\Filtering\AllowedFilter;
+use Illuminate\Support\Collection;
 use Webmozart\Assert\Assert;
 
 class AllowedFacet
@@ -31,11 +32,11 @@ class AllowedFacet
     }
 
     /**
-     * @return array<int,string>
+     * @return Collection<int,string>
      */
-    public function filterNames(): array
+    public function filterNames(): Collection
     {
-        return $this->filterNames;
+        return new Collection($this->filterNames);
     }
 
     public function isActive(): bool

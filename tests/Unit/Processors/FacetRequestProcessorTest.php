@@ -5,6 +5,7 @@ use Ensi\LaravelElasticQuerySpecification\Exceptions\AggregateNotFoundException;
 use Ensi\LaravelElasticQuerySpecification\Exceptions\InvalidQueryException;
 use Ensi\LaravelElasticQuerySpecification\Exceptions\NotUniqueNameException;
 use Ensi\LaravelElasticQuerySpecification\Faceting\AllowedFacet;
+use Ensi\LaravelElasticQuerySpecification\Filtering\AllowedFilter;
 use Ensi\LaravelElasticQuerySpecification\Processors\FacetRequestProcessor;
 use Ensi\LaravelElasticQuerySpecification\Specification\Specification;
 use Ensi\LaravelElasticQuerySpecification\Tests\Unit\Processors\FluentProcessor;
@@ -13,7 +14,9 @@ use Illuminate\Support\Collection;
 uses()->group('unit');
 
 test('not allowed facets', function () {
-    $spec = Specification::new()->allowedFacets([AllowedFacet::terms('foo')]);
+    $spec = Specification::new()
+        ->allowedFilters([AllowedFilter::exact('foo')])
+        ->allowedFacets([AllowedFacet::terms('foo')]);
 
     $processor = new FacetRequestProcessor(new Collection(['foo', 'bar']));
     $processor->visitRoot($spec);
@@ -28,7 +31,8 @@ test('attach aggregate', function () {
 
     $spec = Specification::new()
         ->allowedFacets([$facet])
-        ->allowedAggregates([$agg]);
+        ->allowedAggregates([$agg])
+        ->allowedFilters([AllowedFilter::exact('foo')]);
 
     FluentProcessor::new(FacetRequestProcessor::class, [])
         ->visitRoot($spec)
@@ -47,7 +51,9 @@ test('missing aggregate', function () {
 
 test('enable requested facet', function () {
     $facet = AllowedFacet::terms('foo');
-    $spec = Specification::new()->allowedFacets([$facet]);
+    $spec = Specification::new()
+        ->allowedFilters([AllowedFilter::exact('foo')])
+        ->allowedFacets([$facet]);
 
     FluentProcessor::new(FacetRequestProcessor::class, ['foo'])
         ->visitRoot($spec)
@@ -58,7 +64,9 @@ test('enable requested facet', function () {
 
 test('disable not requested facet', function () {
     $facet = AllowedFacet::terms('foo');
-    $spec = Specification::new()->allowedFacets([$facet]);
+    $spec = Specification::new()
+        ->allowedFilters([AllowedFilter::exact('foo')])
+        ->allowedFacets([$facet]);
 
     FluentProcessor::new(FacetRequestProcessor::class, [])
         ->visitRoot($spec)
@@ -68,11 +76,27 @@ test('disable not requested facet', function () {
 });
 
 test('not unique name', function () {
-    $spec = Specification::new()->allowedFacets([AllowedFacet::terms('foo')]);
+    $spec = Specification::new()
+        ->allowedFilters([AllowedFilter::exact('foo')])
+        ->allowedFacets([AllowedFacet::terms('foo')]);
 
     $processor = new FacetRequestProcessor(new Collection([]));
     $processor->visitRoot($spec);
 
     expect(fn () => $processor->visitNested('bar', $spec))
         ->toThrow(NotUniqueNameException::class);
+});
+
+test('attach filter', function () {
+    $facet = AllowedFacet::terms('foo');
+    $filter = AllowedFilter::exact('foo');
+    $spec = Specification::new()
+        ->allowedFilters([$filter])
+        ->allowedFacets([$facet]);
+
+    $processor = new FacetRequestProcessor(new Collection([]));
+    $processor->visitRoot($spec);
+
+    expect($facet->filters())->toHaveCount(1)
+        ->and($facet->filters()[0])->toBe($filter);
 });

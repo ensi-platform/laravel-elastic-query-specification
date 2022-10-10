@@ -16,7 +16,7 @@ test('set name', function (string $method) {
 test('set filter names', function ($names, array $expected) {
     $facet = AllowedFacet::fromAggregate('foo', $names);
 
-    expect($facet->filterNames())->toEqual($expected);
+    expect($facet->filterNames()->all())->toEqual($expected);
 })->with([
     'default filter name' => [null, ['foo']],
     'single string filter name' => ['bar', ['bar']],
