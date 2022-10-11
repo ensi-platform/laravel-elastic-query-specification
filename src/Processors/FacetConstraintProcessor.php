@@ -10,8 +10,7 @@ class FacetConstraintProcessor extends ConstraintProcessor
 {
     public function visitRoot(Specification $specification): void
     {
-        $filters = $specification->facets()
-            ->filter(fn (AllowedFacet $facet) => $facet->isActive())
+        $filters = $specification->activeFacets()
             ->flatMap(fn (AllowedFacet $facet) => $facet->filters())
             ->each(fn (AllowedFilter $filter) => $filter->disable());
 

@@ -77,9 +77,11 @@ class FacetRequestProcessor implements Visitor
 
         $agg = $aggregates->get($facet->name());
 
-        $agg !== null
-            ? $facet->attachAggregate($agg)
-            : throw new AggregateNotFoundException($facet->name());
+        if ($agg === null) {
+            throw new AggregateNotFoundException($facet->name());
+        }
+
+        $facet->attachAggregate($agg);
     }
 
     private function attachFilters(AllowedFacet $facet, Collection $filters): void
