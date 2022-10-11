@@ -187,6 +187,11 @@ class Specification
     {
         return null !== Arr::first($this->facets, fn (AllowedFacet $facet) => $facet->isActive());
     }
+
+    public function activeFacets(): Collection
+    {
+        return $this->facets()->filter(fn (AllowedFacet $facet) => $facet->isActive());
+    }
     //endregion
 
     private function addComponent(array &$target, string $name, mixed $component, string $type): void

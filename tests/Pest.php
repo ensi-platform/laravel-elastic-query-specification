@@ -5,6 +5,7 @@ use Ensi\LaravelElasticQuery\Search\SearchQuery;
 use Ensi\LaravelElasticQuerySpecification\CustomParameters;
 use Ensi\LaravelElasticQuerySpecification\Specification\CompositeSpecification;
 use Ensi\LaravelElasticQuerySpecification\Tests\Integration\TestAggregationResults;
+use Ensi\LaravelElasticQuerySpecification\Tests\Integration\TestFacetResults;
 use Ensi\LaravelElasticQuerySpecification\Tests\Integration\TestSearchResults;
 use Ensi\LaravelElasticQuerySpecification\Tests\TestCase;
 use Ensi\LaravelElasticQuerySpecification\Tests\UnitTestCase;
@@ -50,4 +51,11 @@ function aggQuery(CompositeSpecification $spec, array $parameters, ?Aggregations
     $queryParameters = new CustomParameters($parameters);
 
     return TestAggregationResults::make($spec, $queryParameters, $query);
+}
+
+function facetQuery(CompositeSpecification $spec, array $parameters, ?AggregationsQuery $query = null): TestFacetResults
+{
+    $queryParameters = new CustomParameters($parameters);
+
+    return TestFacetResults::make($spec, $queryParameters, $query);
 }

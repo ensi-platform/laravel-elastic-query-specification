@@ -80,7 +80,7 @@ test('process nested specification without current facet', function () {
         ->where('bar', 50);
 
     $query = Mockery::mock(AggregationsBuilder::class);
-    $query->allows('nested')
+    $query->allows('whereHas')
         ->with('field', any())
         ->andReturnUsing(function ($field, callable $callback) use ($query) {
             $callback($query);

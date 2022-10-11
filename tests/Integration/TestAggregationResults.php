@@ -14,7 +14,7 @@ use function PHPUnit\Framework\assertEqualsCanonicalizing;
 
 class TestAggregationResults
 {
-    public function __construct(private Collection $results)
+    public function __construct(protected Collection $results)
     {
     }
 
@@ -52,6 +52,13 @@ class TestAggregationResults
     public function assertMinMax(string $aggName, mixed $min, mixed $max): self
     {
         assertEquals(new MinMax($min, $max), $this->get($aggName));
+
+        return $this;
+    }
+
+    public function dump(): static
+    {
+        $this->results->dump();
 
         return $this;
     }
