@@ -37,6 +37,10 @@ class ProductSpecification extends CompositeSpecification
             AllowedAggregate::minmax('rating')
         ]);
         
+        $this->allowedFacets([
+            'package'
+        ]);
+        
         $this->whereNotNull('package');
         
         $this->nested('offers', function (Specification $spec) {
@@ -49,6 +53,10 @@ class ProductSpecification extends CompositeSpecification
             
             $spec->allowedSorts([
                 AllowedSort::field('price')->byMin()
+            ]);
+            
+            $spec->allowedFacets([
+                AllowedFacet::terms('seller_id')
             ]);
         });
     }
@@ -72,6 +80,15 @@ Here are examples of queries for this specification.
     "package": "bottle",
     "seller_id": 10
  }
+}
+```
+```json
+{
+  "facet": ["seller_id", "package"],
+  "filter": {
+    "package": "bottle",
+    "seller_id": [10, 20, 50, 90]
+  }
 }
 ```
 
@@ -157,6 +174,25 @@ AllowedAggregate::minmax('name', 'field');  // Get min and max attribute values
 ```
 
 Aggregates from nested specifications are added to the Elasticsearch query with all constraints and active filters.
+
+You can use the `allowedFacets` method to define facets. Each facet requires an aggregate and one or
+more filters. You can use both the existing aggregate
+
+```php
+AllowedFacet::fromAggregate('name', 'filter');
+```
+
+and the aggregate created by the facet itself
+
+```php
+AllowedFacet::terms('name', 'filter');
+AllowedFacet::minmax('name', ['filter1', 'filter2']);
+```
+
+Filters are registered in the specification separately. Only their names are passed to facet creation methods.
+
+During the calculation of the available values for each facet, all set filters are applied except those associated with
+this facet.
 
 ## Search for documents
 
