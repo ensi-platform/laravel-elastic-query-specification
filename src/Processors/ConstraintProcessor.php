@@ -3,7 +3,6 @@
 namespace Ensi\LaravelElasticQuerySpecification\Processors;
 
 use Ensi\LaravelElasticQuery\Contracts\BoolQuery;
-use Ensi\LaravelElasticQuerySpecification\Filtering\AllowedFilter;
 use Ensi\LaravelElasticQuerySpecification\Specification\Specification;
 use Ensi\LaravelElasticQuerySpecification\Specification\Visitor;
 
@@ -20,7 +19,7 @@ class ConstraintProcessor implements Visitor
 
     public function visitNested(string $field, Specification $specification): void
     {
-        if (!$this->hasActiveFilters($specification)) {
+        if (!$specification->hasActiveFilter()) {
             return;
         }
 
@@ -39,13 +38,5 @@ class ConstraintProcessor implements Visitor
         foreach ($specification->constraints() as $constraint) {
             $constraint($query);
         }
-    }
-
-    private function hasActiveFilters(Specification $specification): bool
-    {
-        $activeFilter = $specification->filters()
-            ->first(fn (AllowedFilter $filter) => $filter->isActive());
-
-        return $activeFilter !== null;
     }
 }

@@ -11,4 +11,6 @@ interface QueryParameters
     public function sorts(): Collection;
 
     public function aggregates(): Collection;
+
+    public function facets(): Collection;
 }

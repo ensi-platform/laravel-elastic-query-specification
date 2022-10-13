@@ -4,11 +4,6 @@ use Ensi\LaravelElasticQuerySpecification\Exceptions\InvalidQueryException;
 use Ensi\LaravelElasticQuerySpecification\Filtering\AllowedFilter;
 use Ensi\LaravelElasticQuerySpecification\Specification\CompositeSpecification;
 use Ensi\LaravelElasticQuerySpecification\Specification\Specification;
-use Ensi\LaravelElasticQuerySpecification\Tests\Data\ProductIndexSeeder;
-
-beforeEach(function () {
-    ProductIndexSeeder::run();
-});
 
 uses()->group('integration');
 

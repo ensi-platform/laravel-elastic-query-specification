@@ -31,4 +31,12 @@ class InvalidQueryException extends HttpException
 
         return new self(Response::HTTP_BAD_REQUEST, $message);
     }
+
+    public static function notAllowedFacets(Collection $facets): self
+    {
+        $aliases = $facets->implode(', ');
+        $message = "Requested facets \"$aliases\" are not allowed";
+
+        return new self(Response::HTTP_BAD_REQUEST, $message);
+    }
 }

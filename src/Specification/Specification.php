@@ -7,8 +7,10 @@ use Ensi\LaravelElasticQuery\Contracts\BoolQuery;
 use Ensi\LaravelElasticQuerySpecification\Agregating\AllowedAggregate;
 use Ensi\LaravelElasticQuerySpecification\Contracts\Constraint;
 use Ensi\LaravelElasticQuerySpecification\Exceptions\ComponentExistsException;
+use Ensi\LaravelElasticQuerySpecification\Faceting\AllowedFacet;
 use Ensi\LaravelElasticQuerySpecification\Filtering\AllowedFilter;
 use Ensi\LaravelElasticQuerySpecification\Sorting\AllowedSort;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 
 class Specification
@@ -24,6 +26,9 @@ class Specification
 
     /** @var array|AllowedAggregate[] */
     protected array $aggregates = [];
+
+    /** @var array|AllowedFacet[] */
+    protected array $facets = [];
 
     public static function new(): static
     {
@@ -50,6 +55,11 @@ class Specification
     public function filters(): Collection
     {
         return new Collection($this->filters);
+    }
+
+    public function hasActiveFilter(): bool
+    {
+        return null !== Arr::first($this->filters, fn (AllowedFilter $filter) => $filter->isActive());
     }
     //endregion
 
@@ -150,6 +160,37 @@ class Specification
     public function aggregates(): Collection
     {
         return new Collection($this->aggregates);
+    }
+    //endregion
+
+    //region Facets
+    public function allowedFacets(array $facets): static
+    {
+        foreach ($facets as $facet) {
+            $facet = AllowedFacet::wrap($facet);
+
+            $this->addComponent($this->facets, $facet->name(), $facet, 'facet');
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int,AllowedFacet>
+     */
+    public function facets(): Collection
+    {
+        return new Collection($this->facets);
+    }
+
+    public function hasActiveFacet(): bool
+    {
+        return null !== Arr::first($this->facets, fn (AllowedFacet $facet) => $facet->isActive());
+    }
+
+    public function activeFacets(): Collection
+    {
+        return $this->facets()->filter(fn (AllowedFacet $facet) => $facet->isActive());
     }
     //endregion
 

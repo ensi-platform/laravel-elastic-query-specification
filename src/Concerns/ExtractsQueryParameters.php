@@ -30,6 +30,13 @@ trait ExtractsQueryParameters
         return $this->extractNames($key);
     }
 
+    public function facets(): Collection
+    {
+        $key = $this->config('facet');
+
+        return $this->extractNames($key);
+    }
+
     protected function extractNames(string $key): Collection
     {
         return collect($this->extractArray($key))

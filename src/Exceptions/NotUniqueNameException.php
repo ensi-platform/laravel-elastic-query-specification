@@ -15,4 +15,9 @@ class NotUniqueNameException extends Exception
     {
         return new self("Aggregate name \"$name\" is not unique");
     }
+
+    public static function facet(string $name): self
+    {
+        return new self("Facet name \"$name\" is not unique");
+    }
 }

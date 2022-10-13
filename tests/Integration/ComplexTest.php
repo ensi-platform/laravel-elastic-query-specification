@@ -4,6 +4,7 @@ use Ensi\LaravelElasticQuerySpecification\QueryBuilderRequest;
 use Ensi\LaravelElasticQuerySpecification\Tests\Data\ProductSpecification;
 use Ensi\LaravelElasticQuerySpecification\Tests\Integration\TestSearchResults;
 use Illuminate\Http\Request;
+use function Pest\Laravel\instance;
 
 uses()->group('integration');
 
@@ -11,7 +12,7 @@ function makeQueryRequest(array $input): QueryBuilderRequest
 {
     $request = new Request($input);
 
-    test()->instance('request', $request);
+    instance('request', $request);
 
     return resolve(QueryBuilderRequest::class);
 }
