@@ -91,3 +91,28 @@ test('facets in root and nested specifications', function () {
         ->assertBucketKeys('tags', ['water', 'drinks', 'video'])
         ->assertBucketKeys('seller_id', [10, 15, 20]);
 });
+
+test('facet with multiple filters', function () {
+    $spec = CompositeSpecification::new()
+        ->nested('offers', function (Specification $spec) {
+            $spec
+                ->allowedFilters([
+                    AllowedFilter::greaterOrEqual('price__gte', 'price'),
+                    AllowedFilter::lessOrEqual('price__lte', 'price'),
+                    AllowedFilter::exact('seller_id'),
+                ])
+                ->allowedFacets([
+                    AllowedFacet::minmax('price', ['price__gte', 'price__lte']),
+                    AllowedFacet::terms('seller_id'),
+                ]);
+        });
+
+    $request = [
+        'facet' => ['price', 'seller_id'],
+        'filter' => ['seller_id' => 20, 'price__gte' => 300, 'price__lte' => 20000],
+    ];
+
+    facetQuery($spec, $request)
+        ->assertBucketKeys('seller_id', [10, 15, 90])
+        ->assertMinMax('price', 200, 28990);
+});

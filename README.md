@@ -129,8 +129,12 @@ $this->allowedFilters([AllowedFilter::exact('name', 'name')]);
 Types of filters
 
 ```php
-AllowedFilter::exact('name', 'field');  // The field value is checked for equality to one of the specified
-AllowedFilter::exists('name', 'field'); // There is a check that the field is in the document and has a non-zero value.
+AllowedFilter::exact('name', 'field');          // The field value is checked for equality to one of the specified
+AllowedFilter::exists('name', 'field');         // There is a check that the field is in the document and has a non-zero value.
+AllowedFilter::greater('name', 'field');        // The field value must be greater than the specified one.
+AllowedFilter::greaterOrEqual('name', 'field'); // The field value must be greater than or equal to the specified one.
+AllowedFilter::less('name', 'field');           // The field value must be less than the specified one.
+AllowedFilter::lessOrEqual('name', 'field');    // The field value must be less than or equal to the specified one.
 ```
 
 The sorts available to the client are added by the `allowedSorts` method. The sorting direction is set in its name.
