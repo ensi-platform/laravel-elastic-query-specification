@@ -39,4 +39,12 @@ class InvalidQueryException extends HttpException
 
         return new self(Response::HTTP_BAD_REQUEST, $message);
     }
+
+    public static function notSupportMultipleValues(string $filter): self
+    {
+        return new self(
+            Response::HTTP_BAD_REQUEST,
+            "Filter \"{$filter}\" does not support multiple values"
+        );
+    }
 }

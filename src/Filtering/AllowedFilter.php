@@ -97,6 +97,26 @@ class AllowedFilter implements Constraint
         return new static($name, new ExistsFilterAction(), $field);
     }
 
+    public static function greater(string $name, ?string $field = null): self
+    {
+        return new static($name, new RangeFilterAction('>'), $field);
+    }
+
+    public static function greaterOrEqual(string $name, ?string $field = null): self
+    {
+        return new static($name, new RangeFilterAction('>='), $field);
+    }
+
+    public static function less(string $name, ?string $field = null): self
+    {
+        return new static($name, new RangeFilterAction('<'), $field);
+    }
+
+    public static function lessOrEqual(string $name, ?string $field = null): self
+    {
+        return new static($name, new RangeFilterAction('<='), $field);
+    }
+
     private function refineValue(mixed $value): mixed
     {
         if ($value === null) {

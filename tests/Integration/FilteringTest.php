@@ -60,3 +60,21 @@ test('exists filter', function (bool $value, int $expectedCount) {
     'true' => [true, 4],
     'false' => [false, 2],
 ]);
+
+test('range filter', function (array $request, array $expectedIds) {
+    $spec = CompositeSpecification::new()
+        ->allowedFilters([
+            AllowedFilter::greater('rating__gt', 'rating'),
+            AllowedFilter::greaterOrEqual('rating__gte', 'rating'),
+            AllowedFilter::less('rating__lt', 'rating'),
+            AllowedFilter::lessOrEqual('rating__lte', 'rating'),
+        ]);
+
+    searchQuery($spec, ['filter' => $request])->assertDocumentIds($expectedIds);
+})->with([
+    'greater' => [['rating__gt' => 7], [150, 405]],
+    'greater or equal' => [['rating__gte' => 7], [1, 150, 405]],
+    'less' => [['rating__lt' => 5], [319, 471]],
+    'less or equal' => [['rating__lte' => 5], [319, 328, 471]],
+    'between' => [['rating__lte' => 7, 'rating__gte' => 5], [1, 328]],
+]);

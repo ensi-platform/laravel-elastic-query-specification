@@ -9,8 +9,8 @@ class ExistsFilterAction implements FilterAction
 {
     public function __invoke(BoolQuery $query, mixed $value, string $field): void
     {
-        $value === true
-            ? $query->whereNotNull($field)
-            : $query->whereNull($field);
+        FilterValue::make($value)
+            ->whenSame(true, fn () => $query->whereNotNull($field))
+            ->orElse(fn () => $query->whereNull($field));
     }
 }
