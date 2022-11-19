@@ -5,6 +5,7 @@ namespace Ensi\LaravelElasticQuerySpecification\Tests;
 use Ensi\LaravelElasticQuery\ElasticQuery;
 use Ensi\LaravelElasticQuery\ElasticQueryServiceProvider;
 use Ensi\LaravelElasticQuerySpecification\ElasticQuerySpecificationServiceProvider;
+use Ensi\LaravelElasticQuerySpecification\Tests\Data\ProductIndexSeeder;
 use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
@@ -12,6 +13,8 @@ class TestCase extends Orchestra
     protected function setUp(): void
     {
         parent::setUp();
+
+        ProductIndexSeeder::run();
     }
 
     protected function tearDown(): void
