@@ -14,7 +14,7 @@ class ProductIndexSeeder extends IndexSeeder
             'active' => ['type' => 'boolean'],
 
             'name' => ['type' => 'keyword', 'copy_to' => 'search_name'],
-            'search_name' => ['type' => 'text'],
+            'search_name' => ['type' => 'text', 'analyzer' => 'default'],
             'description' => ['type' => 'text'],
 
             'code' => ['type' => 'keyword'],
@@ -36,6 +36,33 @@ class ProductIndexSeeder extends IndexSeeder
                     'seller_id' => ['type' => 'keyword'],
                     'active' => ['type' => 'boolean'],
                     'price' => ['type' => 'double'],
+                ],
+            ],
+        ],
+    ];
+
+    protected array $settings = [
+        'analysis' => [
+            'filter' => [
+                'english_stop' => [
+                    'type' => 'stop',
+                    'stopwords' => '_english_',
+                ],
+                'english_stemmer' => [
+                    'type' => 'stemmer',
+                    'language' => 'english',
+                ],
+            ],
+            'analyzer' => [
+                'default' => [
+                    'type' => 'custom',
+                    'char_filter' => ['html_strip'],
+                    'tokenizer' => 'standard',
+                    'filter' => [
+                        'lowercase',
+                        'english_stop',
+                        'english_stemmer',
+                    ],
                 ],
             ],
         ],

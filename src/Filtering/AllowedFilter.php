@@ -117,6 +117,11 @@ class AllowedFilter implements Constraint
         return new static($name, new RangeFilterAction('<='), $field);
     }
 
+    public static function match(string $name, ?string $field): self
+    {
+        return new static($name, new MatchFilterAction(), $field);
+    }
+
     private function refineValue(mixed $value): mixed
     {
         if ($value === null) {

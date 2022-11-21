@@ -78,3 +78,15 @@ test('range filter', function (array $request, array $expectedIds) {
     'less or equal' => [['rating__lte' => 5], [319, 328, 471]],
     'between' => [['rating__lte' => 7, 'rating__gte' => 5], [1, 328]],
 ]);
+
+test('match filter', function (string $query, array $expectedIds) {
+    $spec = CompositeSpecification::new()
+        ->allowedFilters([
+            AllowedFilter::match('name', 'search_name'),
+        ]);
+
+    searchQuery($spec, ['filter' => ['name' => $query]])->assertDocumentIds($expectedIds);
+})->with([
+    'single' => ['water', [150]],
+    'multiple' => ['gloves', [319, 471]],
+]);
