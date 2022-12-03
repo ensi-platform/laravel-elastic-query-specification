@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "345486ad26c70d45627f362b3d552bf9",
+    "content-hash": "59de51dc2b815bd13d7883ddc080dbb1",
     "packages": [
         {
             "name": "brick/math",
@@ -506,22 +506,23 @@
         },
         {
             "name": "ensi/laravel-elastic-query",
-            "version": "0.3.2",
+            "version": "dev-task-96329",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ensi-platform/laravel-elastic-query.git",
-                "reference": "6eb4b091d817cf75d1616d777dd9275f5b630479"
+                "reference": "688f6d08403785feb3da8edeaa54254818a59cbf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ensi-platform/laravel-elastic-query/zipball/6eb4b091d817cf75d1616d777dd9275f5b630479",
-                "reference": "6eb4b091d817cf75d1616d777dd9275f5b630479",
+                "url": "https://api.github.com/repos/ensi-platform/laravel-elastic-query/zipball/688f6d08403785feb3da8edeaa54254818a59cbf",
+                "reference": "688f6d08403785feb3da8edeaa54254818a59cbf",
                 "shasum": ""
             },
             "require": {
                 "elasticsearch/elasticsearch": "^7.13",
                 "illuminate/support": "^8.0||^9.0",
-                "php": "^8.0"
+                "php": "^8.0",
+                "webmozart/assert": "^1.11"
             },
             "require-dev": {
                 "friendsofphp/php-cs-fixer": "^3.2",
@@ -562,9 +563,9 @@
             ],
             "support": {
                 "issues": "https://github.com/ensi-platform/laravel-elastic-query/issues",
-                "source": "https://github.com/ensi-platform/laravel-elastic-query/tree/0.3.2"
+                "source": "https://github.com/ensi-platform/laravel-elastic-query/tree/task-96329"
             },
-            "time": "2022-02-17T14:20:30+00:00"
+            "time": "2022-12-03T16:59:27+00:00"
         },
         {
             "name": "ezimuel/guzzlestreams",
@@ -9038,7 +9039,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "ensi/laravel-elastic-query": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

@@ -9,6 +9,7 @@ use Ensi\LaravelElasticQuerySpecification\Contracts\QueryParameters;
 use Ensi\LaravelElasticQuerySpecification\Specification\CompositeSpecification;
 use Ensi\LaravelElasticQuerySpecification\Tests\Data\ProductsIndex;
 use Illuminate\Support\Collection;
+use function PHPUnit\Framework\assertCount;
 use function PHPUnit\Framework\assertEquals;
 use function PHPUnit\Framework\assertEqualsCanonicalizing;
 
@@ -49,9 +50,23 @@ class TestAggregationResults
         return $this;
     }
 
+    public function assertBucketKeysCount(string $aggName, int $expected): self
+    {
+        assertCount($expected, $this->get($aggName));
+
+        return $this;
+    }
+
     public function assertMinMax(string $aggName, mixed $min, mixed $max): self
     {
         assertEquals(new MinMax($min, $max), $this->get($aggName));
+
+        return $this;
+    }
+
+    public function assertValue(string $aggName, mixed $expected): self
+    {
+        assertEquals($expected, $this->get($aggName));
 
         return $this;
     }
