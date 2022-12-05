@@ -1,5 +1,7 @@
 <?php
 
+use Ensi\LaravelElasticQuery\Contracts\MatchOptions;
+use Ensi\LaravelElasticQuery\Contracts\MultiMatchOptions;
 use Ensi\LaravelElasticQuerySpecification\Exceptions\InvalidQueryException;
 use Ensi\LaravelElasticQuerySpecification\Filtering\AllowedFilter;
 use Ensi\LaravelElasticQuerySpecification\Specification\CompositeSpecification;
@@ -79,14 +81,37 @@ test('range filter', function (array $request, array $expectedIds) {
     'between' => [['rating__lte' => 7, 'rating__gte' => 5], [1, 328]],
 ]);
 
-test('match filter', function (string $query, array $expectedIds) {
+test('match filter', function (string $query, ?MatchOptions $options, array $expectedIds) {
     $spec = CompositeSpecification::new()
         ->allowedFilters([
-            AllowedFilter::match('name', 'search_name'),
+            AllowedFilter::match('name', 'search_name', $options),
         ]);
 
     searchQuery($spec, ['filter' => ['name' => $query]])->assertDocumentIds($expectedIds);
 })->with([
-    'single' => ['water', [150]],
-    'multiple' => ['gloves', [319, 471]],
+    'single result' => ['water', null, [150]],
+    'multiple results' => ['gloves', null, [319, 471]],
+    'with options' => ['woter', MatchOptions::make(fuzziness: 'AUTO'), [150]],
 ]);
+
+test('multi match filter', function (string $query, ?MultiMatchOptions $options, array $expectedIds) {
+    $spec = CompositeSpecification::new()
+        ->allowedFilters([
+            AllowedFilter::multiMatch('name', ['search_name', 'description'], $options),
+        ]);
+
+    searchQuery($spec, ['filter' => ['name' => $query]])->assertDocumentIds($expectedIds);
+})->with([
+    'single result' => ['water', null, [150]],
+    'multiple results' => ['gloves', null, [319, 471]],
+    'with options' => ['woter', MultiMatchOptions::make(fuzziness: 'AUTO'), [150]],
+]);
+
+test('multi match filter priority', function () {
+    $spec = CompositeSpecification::new()
+        ->allowedFilters([
+            AllowedFilter::multiMatch('name', ['search_name^3', 'description']),
+        ]);
+
+    searchQuery($spec, ['filter' => ['name' => 'leather']])->assertDocumentOrder([319, 471]);
+});
