@@ -115,3 +115,12 @@ test('multi match filter priority', function () {
 
     searchQuery($spec, ['filter' => ['name' => 'leather']])->assertDocumentOrder([319, 471]);
 });
+
+test('multi match filter without fields', function () {
+    $spec = CompositeSpecification::new()
+        ->allowedFilters([
+            AllowedFilter::multiMatch('name'),
+        ]);
+
+    searchQuery($spec, ['filter' => ['name' => 'leather']])->assertDocumentOrder([319, 471]);
+});

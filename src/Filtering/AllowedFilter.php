@@ -124,7 +124,7 @@ class AllowedFilter implements Constraint
         return new static($name, new MatchFilterAction($options ?? new MatchOptions()), $field);
     }
 
-    public static function multiMatch(string $name, array $fields, ?MultiMatchOptions $options = null): self
+    public static function multiMatch(string $name, ?array $fields = null, ?MultiMatchOptions $options = null): self
     {
         return new static(
             $name,

@@ -22,8 +22,8 @@ class MultiMatchFilterAction implements FilterAction
             ->whenMultiple(fn () => throw InvalidQueryException::notSupportMultipleValues($field));
     }
 
-    public static function encodeFields(array $fields): string
+    public static function encodeFields(?array $fields): string
     {
-        return implode(',', $fields);
+        return implode(',', $fields ?: ['*']);
     }
 }
