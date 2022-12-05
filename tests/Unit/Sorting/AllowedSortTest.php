@@ -1,5 +1,6 @@
 <?php
 
+use Ensi\LaravelElasticQuery\Contracts\MissingValuesMode;
 use Ensi\LaravelElasticQuery\Contracts\SortableQuery;
 use Ensi\LaravelElasticQuery\Contracts\SortMode;
 use Ensi\LaravelElasticQuery\Contracts\SortOrder;
@@ -28,14 +29,14 @@ test('parse order', function (string $source, ?string $expected) {
 ]);
 
 test('construct sets default order', function () {
-    $action = expectInvoke(SortAction::class, 1, any(), SortOrder::DESC, any(), 'foo');
+    $action = expectInvoke(SortAction::class, 1, any(), SortOrder::DESC, any(), 'foo', any());
 
     $allowedSort = AllowedSort::custom('-foo', $action);
     $allowedSort(Mockery::mock(SortableQuery::class), null);
 });
 
 test('construct sets field', function (string $name, ?string $field, string $expected) {
-    $action = expectInvoke(SortAction::class, 1, any(), any(), any(), $expected);
+    $action = expectInvoke(SortAction::class, 1, any(), any(), any(), $expected, any());
 
     $allowedSort = AllowedSort::custom($name, $action, $field);
     $allowedSort(Mockery::mock(SortableQuery::class), null);
@@ -45,8 +46,15 @@ test('construct sets field', function (string $name, ?string $field, string $exp
 ]);
 
 test('mode', function () {
-    $action = expectInvoke(SortAction::class, 1, any(), any(), SortMode::MEDIAN, any());
+    $action = expectInvoke(SortAction::class, 1, any(), any(), SortMode::MEDIAN, any(), any());
 
     $allowedSort = AllowedSort::custom('-foo', $action)->mode(SortMode::MEDIAN);
+    $allowedSort(Mockery::mock(SortableQuery::class), null);
+});
+
+test('missing values', function () {
+    $action = expectInvoke(SortAction::class, 1, any(), any(), any(), any(), MissingValuesMode::FIRST);
+
+    $allowedSort = AllowedSort::custom('-foo', $action)->missingValuesFirst();
     $allowedSort(Mockery::mock(SortableQuery::class), null);
 });

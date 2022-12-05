@@ -41,13 +41,18 @@ class AllowedAggregate implements Aggregate
             : self::terms($source);
     }
 
-    public static function terms(string $name, ?string $field = null): self
+    public static function terms(string $name, ?string $field = null, ?int $size = null): self
     {
-        return new static($name, new TermsAggregateAction(), $field);
+        return new static($name, new TermsAggregateAction($size), $field);
     }
 
     public static function minmax(string $name, ?string $field = null): self
     {
         return new static($name, new MinMaxAggregateAction(), $field);
+    }
+
+    public static function count(string $name, ?string $field = null): self
+    {
+        return new static($name, new ValueCountAggregateAction(), $field);
     }
 }

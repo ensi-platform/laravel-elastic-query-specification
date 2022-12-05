@@ -5,14 +5,10 @@ namespace Ensi\LaravelElasticQuerySpecification\Agregating;
 use Ensi\LaravelElasticQuery\Contracts\AggregationsBuilder;
 use Ensi\LaravelElasticQuerySpecification\Contracts\AggregateAction;
 
-class TermsAggregateAction implements AggregateAction
+class ValueCountAggregateAction implements AggregateAction
 {
-    public function __construct(private ?int $size = null)
-    {
-    }
-
     public function __invoke(AggregationsBuilder $builder, string $name, string $field): void
     {
-        $builder->terms($name, $field, $this->size);
+        $builder->count($name, $field);
     }
 }

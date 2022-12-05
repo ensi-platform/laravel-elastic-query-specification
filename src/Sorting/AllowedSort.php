@@ -2,6 +2,7 @@
 
 namespace Ensi\LaravelElasticQuerySpecification\Sorting;
 
+use Ensi\LaravelElasticQuery\Contracts\MissingValuesMode;
 use Ensi\LaravelElasticQuery\Contracts\SortableQuery;
 use Ensi\LaravelElasticQuery\Contracts\SortMode;
 use Ensi\LaravelElasticQuery\Contracts\SortOrder;
@@ -18,6 +19,7 @@ class AllowedSort implements Sort
     protected string $field;
     protected string $defaultOrder;
     protected ?string $mode = null;
+    protected ?string $missingValues = null;
 
     public function __construct(string $name, SortAction $action, ?string $field = null)
     {
@@ -42,7 +44,7 @@ class AllowedSort implements Sort
 
     public function __invoke(SortableQuery $query, ?string $order): void
     {
-        $this->action->__invoke($query, $order ?? $this->defaultOrder, $this->mode, $this->field);
+        $this->action->__invoke($query, $order ?? $this->defaultOrder, $this->mode, $this->field, $this->missingValues);
     }
 
     public function name(): string
@@ -55,6 +57,13 @@ class AllowedSort implements Sort
         Assert::oneOf($value, SortMode::cases());
 
         $this->mode = $value;
+
+        return $this;
+    }
+
+    public function missingValuesFirst(): self
+    {
+        $this->missingValues = MissingValuesMode::FIRST;
 
         return $this;
     }

@@ -62,7 +62,7 @@ test('pass order', function () {
 
     $query = Mockery::mock(SortableQuery::class);
     $query->expects('sortBy')
-        ->with('foo', SortOrder::DESC, null)
+        ->with('foo', SortOrder::DESC, null, null)
         ->once()
         ->andReturnSelf();
 

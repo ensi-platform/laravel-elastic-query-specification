@@ -80,3 +80,25 @@ test('validate names', function () {
 
     expect(fn () => aggQuery($spec, $request))->toThrow(InvalidQueryException::class);
 });
+
+test('terms with size', function () {
+    $spec = CompositeSpecification::new()->allowedAggregates([
+        AllowedAggregate::terms('tags', size: 2),
+    ]);
+
+    $request = ['aggregate' => ['tags']];
+
+    aggQuery($spec, $request)
+        ->assertBucketKeysCount('tags', 2);
+});
+
+test('count aggregation', function () {
+    $spec = CompositeSpecification::new()->allowedAggregates([
+        AllowedAggregate::count('product_count', 'product_id'),
+    ]);
+
+    $request = ['aggregate' => ['product_count']];
+
+    aggQuery($spec, $request)
+        ->assertValue('product_count', 6);
+});

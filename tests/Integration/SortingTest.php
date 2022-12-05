@@ -55,3 +55,16 @@ test('validate names', function () {
     expect(fn () => searchQuery($spec, $request))
         ->toThrow(InvalidQueryException::class);
 });
+
+test('sort missing values', function () {
+    $spec = CompositeSpecification::new()->allowedSorts([
+        AllowedSort::field('cashback', 'cashback.value')->missingValuesFirst(),
+        'product_id',
+    ]);
+
+    $request = [
+        'sort' => ['cashback', 'product_id'],
+    ];
+
+    searchQuery($spec, $request)->assertDocumentOrder([405, 471, 319, 1, 150, 328]);
+});

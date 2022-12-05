@@ -14,7 +14,7 @@ test('root aggregate', function () {
 
     $query = Mockery::mock(AggregationsBuilder::class);
     $query->expects('terms')
-        ->with('foo', 'foo')
+        ->with('foo', 'foo', null)
         ->once()
         ->andReturnSelf();
 
@@ -62,7 +62,7 @@ test('nested constraints', function () {
             return $query;
         });
 
-    $query->expects('terms')->with('foo', 'foo')->andReturnSelf()->once();
+    $query->expects('terms')->with('foo', 'foo', null)->andReturnSelf()->once();
     $query->expects('where')->with('bar', 10)->andReturnSelf()->once();
 
     FluentProcessor::new(AggregateProcessor::class, $query, ['foo'])
