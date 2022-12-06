@@ -3,6 +3,8 @@
 namespace Ensi\LaravelElasticQuerySpecification\Filtering;
 
 use Ensi\LaravelElasticQuery\Contracts\BoolQuery;
+use Ensi\LaravelElasticQuery\Contracts\MatchOptions;
+use Ensi\LaravelElasticQuery\Contracts\MultiMatchOptions;
 use Ensi\LaravelElasticQuerySpecification\Contracts\Constraint;
 use Ensi\LaravelElasticQuerySpecification\Contracts\FilterAction;
 use Webmozart\Assert\Assert;
@@ -117,9 +119,18 @@ class AllowedFilter implements Constraint
         return new static($name, new RangeFilterAction('<='), $field);
     }
 
-    public static function match(string $name, ?string $field): self
+    public static function match(string $name, ?string $field, ?MatchOptions $options = null): self
     {
-        return new static($name, new MatchFilterAction(), $field);
+        return new static($name, new MatchFilterAction($options ?? new MatchOptions()), $field);
+    }
+
+    public static function multiMatch(string $name, ?array $fields = null, ?MultiMatchOptions $options = null): self
+    {
+        return new static(
+            $name,
+            new MultiMatchFilterAction($options ?? new MultiMatchOptions()),
+            MultiMatchFilterAction::encodeFields($fields)
+        );
     }
 
     private function refineValue(mixed $value): mixed

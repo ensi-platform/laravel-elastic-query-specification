@@ -135,6 +135,8 @@ AllowedFilter::greater('name', 'field');        // The field value must be great
 AllowedFilter::greaterOrEqual('name', 'field'); // The field value must be greater than or equal to the specified one.
 AllowedFilter::less('name', 'field');           // The field value must be less than the specified one.
 AllowedFilter::lessOrEqual('name', 'field');    // The field value must be less than or equal to the specified one.
+AllowedFilter::match('name', 'field');          // Full text search in the field
+AllowedFilter::multiMatch('name', ['field1^3', 'field2']);    // Full text search in the fields
 ```
 
 The sorts available to the client are added by the `allowedSorts` method. The sorting direction is set in its name.
