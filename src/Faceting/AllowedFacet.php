@@ -100,10 +100,10 @@ class AllowedFacet
         return self::new($aggregateName, $filterNames);
     }
 
-    public static function terms(string $name, string|array|null $filterNames = null, ?string $field = null): self
+    public static function terms(string $name, string|array|null $filterNames = null, ?string $field = null, ?int $size = null): self
     {
         return self::new($name, $filterNames)
-            ->attachAggregate(AllowedAggregate::terms($name, $field));
+            ->attachAggregate(AllowedAggregate::terms($name, $field, $size));
     }
 
     public static function minmax(string $name, string|array|null $filterNames = null, ?string $field = null): self
