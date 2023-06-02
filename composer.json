@@ -16,8 +16,8 @@
     ],
     "require": {
         "php": "^8.0",
-        "elasticsearch/elasticsearch": "^7.13",
-        "ensi/laravel-elastic-query": "^0.3.0",
+        "elasticsearch/elasticsearch": "^8.0",
+        "ensi/laravel-elastic-query": "^8.0",
         "illuminate/contracts": "^8.37 || ^9.0",
         "illuminate/support": "^8.0 || ^9.0",
         "spatie/laravel-package-tools": "^1.4.3",
@@ -51,7 +51,8 @@
         "sort-packages": true,
         "allow-plugins": {
             "pestphp/pest-plugin": true,
-            "composer/package-versions-deprecated": true
+            "composer/package-versions-deprecated": true,
+            "php-http/discovery": true
         }
     },
     "extra": {
