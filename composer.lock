@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "33764c7e63907cc007ac53278ad1c3bd",
+    "content-hash": "8b263a8db1bffbcc7032fb70dae8eae6",
     "packages": [
         {
             "name": "brick/math",
@@ -506,16 +506,16 @@
         },
         {
             "name": "ensi/laravel-elastic-query",
-            "version": "7.0.4",
+            "version": "dev-task-111039_v7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ensi-platform/laravel-elastic-query.git",
-                "reference": "0015121758f6262a526c78674cb518bcc0a7674e"
+                "reference": "03642c3e755050fe838da69a2905db6a28f59665"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ensi-platform/laravel-elastic-query/zipball/0015121758f6262a526c78674cb518bcc0a7674e",
-                "reference": "0015121758f6262a526c78674cb518bcc0a7674e",
+                "url": "https://api.github.com/repos/ensi-platform/laravel-elastic-query/zipball/03642c3e755050fe838da69a2905db6a28f59665",
+                "reference": "03642c3e755050fe838da69a2905db6a28f59665",
                 "shasum": ""
             },
             "require": {
@@ -563,9 +563,9 @@
             ],
             "support": {
                 "issues": "https://github.com/ensi-platform/laravel-elastic-query/issues",
-                "source": "https://github.com/ensi-platform/laravel-elastic-query/tree/7.0.4"
+                "source": "https://github.com/ensi-platform/laravel-elastic-query/tree/task-111039_v7"
             },
-            "time": "2023-05-17T08:18:10+00:00"
+            "time": "2023-08-10T10:45:25+00:00"
         },
         {
             "name": "ezimuel/guzzlestreams",
@@ -9039,7 +9039,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "ensi/laravel-elastic-query": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
