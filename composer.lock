@@ -542,16 +542,16 @@
         },
         {
             "name": "ensi/laravel-elastic-query",
-            "version": "8.0.3",
+            "version": "8.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ensi-platform/laravel-elastic-query.git",
-                "reference": "0607f426d18b5d21d6c8f7be4696ea3219742213"
+                "reference": "2b8e15e82fc78a0f2b255b2e2eb4c466310bff0e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ensi-platform/laravel-elastic-query/zipball/0607f426d18b5d21d6c8f7be4696ea3219742213",
-                "reference": "0607f426d18b5d21d6c8f7be4696ea3219742213",
+                "url": "https://api.github.com/repos/ensi-platform/laravel-elastic-query/zipball/2b8e15e82fc78a0f2b255b2e2eb4c466310bff0e",
+                "reference": "2b8e15e82fc78a0f2b255b2e2eb4c466310bff0e",
                 "shasum": ""
             },
             "require": {
@@ -599,9 +599,9 @@
             ],
             "support": {
                 "issues": "https://github.com/ensi-platform/laravel-elastic-query/issues",
-                "source": "https://github.com/ensi-platform/laravel-elastic-query/tree/8.0.3"
+                "source": "https://github.com/ensi-platform/laravel-elastic-query/tree/8.0.8"
             },
-            "time": "2023-05-17T08:18:28+00:00"
+            "time": "2023-08-10T12:13:50+00:00"
         },
         {
             "name": "graham-campbell/result-type",

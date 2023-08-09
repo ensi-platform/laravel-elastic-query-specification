@@ -9,6 +9,7 @@
     "description": "TV station description",
     "cashback": {"active": true, "value": 20},
     "tags": ["video"],
+    "vat": 18,
     "offers": [
       {"seller_id": 10, "active": true, "price": 20000.0},
       {"seller_id": 15, "active": true, "price": 21000.0},
@@ -24,6 +25,7 @@
     "package": "bottle",
     "description": "TASSAY description water",
     "cashback": {"active": true, "value": 20},
+    "vat": 20,
     "tags": ["drinks", "water"],
     "offers": [
       {"seller_id": 10, "active": false, "price": 168.0},
@@ -40,6 +42,7 @@
     "description": "L gloves descriptions",
     "cashback": {"active": true, "value": 10},
     "tags": ["clothes", "gloves"],
+    "vat": 20,
     "offers": [
       {"seller_id": 10, "active": false, "price": 980.0},
       {"seller_id": 15, "active": false, "price": 980.0},
@@ -56,6 +59,7 @@
     "description": "Nice tv",
     "cashback": {"active": true, "value": 20},
     "tags": ["video"],
+    "vat": 18,
     "offers": [
       {"seller_id": 90, "active": true, "price": 41999.0},
       {"seller_id": 20, "active": true, "price": 28990.0}
@@ -70,6 +74,7 @@
     "package": "bottle",
     "description": "S.Pellegrino from Dolomites",
     "tags": ["drinks", "water"],
+    "vat": 20,
     "offers": [
       {"seller_id": 10, "active": false, "price": 611.0},
       {"seller_id": 15, "active": false, "price": 620.0}
@@ -83,6 +88,7 @@
     "rating": 3,
     "description": "VITTOVAR leather description",
     "tags": ["clothes", "gloves"],
+    "vat": 18,
     "offers": [
     ]
   }

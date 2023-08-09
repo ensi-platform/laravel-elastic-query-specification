@@ -40,6 +40,13 @@ class InvalidQueryException extends HttpException
         return new self(Response::HTTP_BAD_REQUEST, $message);
     }
 
+    public static function notAllowedCollapse(string $collapse): self
+    {
+        $message = "Requested collapse \"$collapse\" are not allowed";
+
+        return new self(Response::HTTP_BAD_REQUEST, $message);
+    }
+
     public static function notSupportMultipleValues(string $filter): self
     {
         return new self(

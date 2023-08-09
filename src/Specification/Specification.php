@@ -5,6 +5,7 @@ namespace Ensi\LaravelElasticQuerySpecification\Specification;
 use Closure;
 use Ensi\LaravelElasticQuery\Contracts\BoolQuery;
 use Ensi\LaravelElasticQuerySpecification\Agregating\AllowedAggregate;
+use Ensi\LaravelElasticQuerySpecification\Collapsing\AllowedCollapse;
 use Ensi\LaravelElasticQuerySpecification\Contracts\Constraint;
 use Ensi\LaravelElasticQuerySpecification\Exceptions\ComponentExistsException;
 use Ensi\LaravelElasticQuerySpecification\Faceting\AllowedFacet;
@@ -29,6 +30,9 @@ class Specification
 
     /** @var array|AllowedFacet[] */
     protected array $facets = [];
+
+    /** @var array|AllowedCollapse[] */
+    protected array $collapses = [];
 
     public static function new(): static
     {
@@ -191,6 +195,27 @@ class Specification
     public function activeFacets(): Collection
     {
         return $this->facets()->filter(fn (AllowedFacet $facet) => $facet->isActive());
+    }
+    //endregion
+
+    //region Collapse
+    public function allowedCollapses(array $collapses): static
+    {
+        foreach ($collapses as $collapse) {
+            $collapse = AllowedCollapse::wrap($collapse);
+
+            $this->addComponent($this->collapses, $collapse->name(), $collapse, 'collapse');
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int,AllowedCollapse>
+     */
+    public function collapses(): Collection
+    {
+        return new Collection($this->collapses);
     }
     //endregion
 
