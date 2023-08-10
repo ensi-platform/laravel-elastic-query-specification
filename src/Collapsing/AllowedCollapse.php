@@ -2,8 +2,8 @@
 
 namespace Ensi\LaravelElasticQuerySpecification\Collapsing;
 
-use Ensi\LaravelElasticQuerySpecification\Contracts\Collapse;
 use Ensi\LaravelElasticQuery\Contracts\CollapsibleQuery;
+use Ensi\LaravelElasticQuerySpecification\Contracts\Collapse;
 use Webmozart\Assert\Assert;
 
 class AllowedCollapse implements Collapse
