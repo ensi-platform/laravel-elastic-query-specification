@@ -6,3 +6,4 @@
 *.cache
 phpunit.xml
 .huskyrc
+composer.lock
