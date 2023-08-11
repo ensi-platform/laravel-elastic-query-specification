@@ -52,7 +52,7 @@
         "allow-plugins": {
             "pestphp/pest-plugin": true,
             "composer/package-versions-deprecated": true,
-            "php-http/discovery": false
+            "php-http/discovery": true
         }
     },
     "extra": {
