@@ -13,4 +13,6 @@ interface QueryParameters
     public function aggregates(): Collection;
 
     public function facets(): Collection;
+
+    public function collapse(): ?string;
 }

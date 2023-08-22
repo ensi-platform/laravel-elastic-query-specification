@@ -9,5 +9,6 @@ return [
         'sort' => 'sort',
         'aggregate' => 'aggregate',
         'facet' => 'facet',
+        'collapse' => 'collapse',
     ],
 ];
