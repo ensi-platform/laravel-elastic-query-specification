@@ -37,6 +37,18 @@ trait ExtractsQueryParameters
         return $this->extractNames($key);
     }
 
+    public function collapse(): ?string
+    {
+        $key = $this->config('collapse');
+        $result = $this->extract($key);
+
+        if (!is_string($result) || empty(trim($result))) {
+            return null;
+        }
+
+        return trim($result);
+    }
+
     protected function extractNames(string $key): Collection
     {
         return collect($this->extractArray($key))

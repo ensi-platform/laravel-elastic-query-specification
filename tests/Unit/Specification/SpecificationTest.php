@@ -1,6 +1,7 @@
 <?php
 
 use Ensi\LaravelElasticQuerySpecification\Agregating\AllowedAggregate;
+use Ensi\LaravelElasticQuerySpecification\Collapsing\AllowedCollapse;
 use Ensi\LaravelElasticQuerySpecification\Contracts\Constraint;
 use Ensi\LaravelElasticQuerySpecification\Exceptions\ComponentExistsException;
 use Ensi\LaravelElasticQuerySpecification\Faceting\AllowedFacet;
@@ -60,6 +61,13 @@ test('allowed facets', function () {
         ->allowedFacets(['foo', AllowedFacet::terms('bar')]);
 
     expect($spec->facets())->toHaveCount(2);
+});
+
+test('allowed collapses', function () {
+    $spec = Specification::new()
+        ->allowedCollapses(['foo', AllowedCollapse::field('bar')]);
+
+    expect($spec->collapses())->toHaveCount(2);
 });
 
 test('duplicate component name', function (string $method) {
