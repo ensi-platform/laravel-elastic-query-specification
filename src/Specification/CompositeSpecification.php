@@ -34,7 +34,7 @@ class CompositeSpecification
         return $result === $this->rootSpecification ? $this : $result;
     }
 
-    public function nested(string $field, Specification|Closure $factory = null): static
+    public function nested(string $field, null|Specification|Closure $factory = null): static
     {
         $spec = $factory instanceof Specification
             ? $factory
